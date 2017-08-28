@@ -1,0 +1,68 @@
+.header-bg {
+  background-image: url(./../../static/img/land-first.jpg);
+  background-size: cover;
+}
+
+.header-content {
+  position: relative;
+  text-align: center;
+  color : white;
+}
+
+@media screen and (min-width: 576px) {
+  h1 { font-size: 25px; }
+  h2 { font-size: 20px; }
+  p { font-size: 16px; }
+
+  .header-content {
+    top: 100px;
+  }
+
+  .header-bg {
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h1 { font-size: 30px; }
+  h2 { font-size: 26px; }
+  p { font-size: 20px; }
+
+  .header-bg {
+    min-height: 400px;
+  }
+
+  .header-content {
+    top: 150px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 30px; }
+  p { font-size: 22px; }
+
+  .header-content {
+    top: 300px;
+  }
+
+  .header-bg {
+    min-height: 700px;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 30px; }
+  p { font-size: 22px; }
+
+  .header-content {
+    top: 300px;
+  }
+
+  .header-bg  {
+    min-height: 700px;
+  }
+
+}
