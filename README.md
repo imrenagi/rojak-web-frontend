@@ -1,3 +1,6 @@
-# An example of minimum React configuration to use Bootstrap
+# Rojak Web Frontend
 
-You can find full description about how to do it at [Webpack Configuration for Using Bootstrap in React](https://medium.com/@vladbezden/webpack-configuration-for-using-bootstrap-in-react-a6ef2dfa1d95)
+## Getting started
+* Install node, npm or yarn
+* Install dependencies by running : `npm install` or `yarn install`
+* Run application byL `npm start` or `yarn start`
