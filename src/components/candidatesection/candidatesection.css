@@ -1,0 +1,9 @@
+.title-center {
+  position: relative;
+  text-align: center;
+}
+
+.section-margin {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

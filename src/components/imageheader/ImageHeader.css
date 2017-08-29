@@ -43,11 +43,11 @@
   p { font-size: 22px; }
 
   .header-content {
-    top: 300px;
+    top: 200px;
   }
 
   .header-bg {
-    min-height: 700px;
+    min-height: 500px;
   }
 
 }
@@ -58,11 +58,11 @@
   p { font-size: 22px; }
 
   .header-content {
-    top: 300px;
+    top: 200px;
   }
 
   .header-bg  {
-    min-height: 700px;
+    min-height: 500px;
   }
 
 }
