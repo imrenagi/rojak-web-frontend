@@ -1,25 +1,51 @@
-.thumbnail-box {
-  padding: 10px;
-  margin-top: 10px;
-  border-style: solid;
-  border-width: 1px;
+.candidate-card-wrapper {
+  position: relative;
+  padding: 15px;
+  height: 350px;
+  background-color: #ffffff;
+  border: 1px;
+  border-radius: 5px;
 }
 
-.container-img {
-  display: block;
-  margin: 0 auto;
-  width:100%;
-  min-height: 30px;
-  background-color: #ff1022;
+.candidate-card-title {
+  text-decoration: none !important;
+  position: relative;
+  text-align: left;
+  color: #002E36;
+  font-size: 100px;
+  margin: 0px;
 }
 
-.img {
-  margin: auto;
-  max-width: 100%;
+.candidate-card-divider {
+  width: 210px;
+  height: 5px;
+  background: #82D8E3;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
+
+.candidate-card-image-link {
+
+}
+
+.candidate-card-image {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  max-height: 300px;
+  margin-bottom: 5px;
+}
+
+.candidate-card-counter {
+  height: 80px;
+  margin-top: -5px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
 
 
 h1, h2, h3, p {
   position: relative;
-  text-align: center;
 }

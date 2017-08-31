@@ -13,17 +13,19 @@ export default class CandidateSection extends React.Component {
 
   render() {
     return (
-      <div className="section-margin">
-        <div className="row title-center">
+      <div className="candidate-section">
+        <div className="candidate-section-title">
           <h1>Candidates</h1>
+        </div>
+        <div className="candidate-section-description">
           <p>This is all candidates which are participated in this election </p>
         </div>
-        <div className="row section-margin">
+        <div className="candidate-section-thumbnail">
             <CandidateThumbnail img={agusImg} candidate_name="Agus & Silvi"/>
             <CandidateThumbnail img={ahokImg} candidate_name="Ahok & Djarot"/>
             <CandidateThumbnail img={aniesImg} candidate_name="Anies & Sandi"/>
         </div>
-        <div className="row">
+        <div className="candidate-section-load-more">
           <Button bsStyle='primary' bsSize='large'>Tamplikan Selengkapnya</Button>
         </div>
       </div>
