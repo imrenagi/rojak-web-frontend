@@ -6,22 +6,23 @@
   margin-right: -15px;
 }
 
-.candidate.title {
+.candidate .title {
   font-size: 30px;
   padding-top: 20px;
 }
 
-.candidate.description {
+.candidate .description {
   font-size: 24px;
   margin: 0px;
 }
 
-.candidate.thumbnail {
+.candidate .custom-thumbnail {
   margin-top: 20px;
   margin-bottom: 20px;
+  
 }
 
-.candidate.load-more {
+.candidate .load-more {
   margin-top: 20px;
   margin-bottom: 20px;
 }

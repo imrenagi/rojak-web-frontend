@@ -20,7 +20,7 @@ export default class CandidateSection extends React.Component {
         <div className="description">
           <p>This is all candidates which are participated in this election </p>
         </div>
-        <div className="thumbnail">
+        <div className="custom-thumbnail">
             <CandidateThumbnail img={agusImg} candidate_name="Agus & Silvi"/>
             <CandidateThumbnail img={ahokImg} candidate_name="Ahok & Djarot"/>
             <CandidateThumbnail img={aniesImg} candidate_name="Anies & Sandi"/>
