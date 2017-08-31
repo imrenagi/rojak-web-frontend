@@ -5,7 +5,7 @@ import styles from './candidatesection.css';
 
 import CandidateThumbnail from './../candidatethumbnail/CandidateThumbnail'
 
-export default class CandidateSection extends React.Component {
+export default class CandidateList extends React.Component {
 
   render() {
       var candidateNodes = this.props.data.map((candidate) => {
