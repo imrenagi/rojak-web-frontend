@@ -1,4 +1,4 @@
-.candidate-section {
+.candidate {
   position: relative;
   text-align: center;
   background-color: #eff5f5;
@@ -6,22 +6,22 @@
   margin-right: -15px;
 }
 
-.candidate-section-title {
+.candidate.title {
   font-size: 30px;
   padding-top: 20px;
 }
 
-.candidate-section-description {
+.candidate.description {
   font-size: 24px;
   margin: 0px;
 }
 
-.candidate-section-thumbnail {
+.candidate.thumbnail {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.candidate-section-load-more {
+.candidate.load-more {
   margin-top: 20px;
   margin-bottom: 20px;
 }
