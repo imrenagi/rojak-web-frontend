@@ -8,7 +8,7 @@ export default class MediaSection extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="align-middle">
+        <div className="title">
           <h1>Media Analytics</h1>
           <p>All medias which made news about this election </p>
         </div>
