@@ -10,7 +10,7 @@ export default class CandidateSection extends React.Component {
   render() {
       var candidateNodes = this.props.data.map((candidate) => {
         return (
-          <CandidateThumbnail name={candidate.name} img={candidate.img} />)
+          <CandidateThumbnail name={candidate.name} img={candidate.img} counter={candidate.counter}/>)
       });
 
       return (<div className="row custom-thumbnail">
