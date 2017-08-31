@@ -3,13 +3,31 @@ import { Button } from 'react-bootstrap'
 
 import styles from './candidatesection.css';
 
-import CandidateThumbnail from './../candidatethumbnail/CandidateThumbnail'
+import CandidateList from './CandidateList';
 
 import agusImg from './../../static/img/agus-silvi.jpg'
 import ahokImg from './../../static/img/ahok-djarot.jpg'
 import aniesImg from './../../static/img/anies-sandi.jpg'
 
 export default class CandidateSection extends React.Component {
+
+  constructor() {
+    super();
+    this.state = { data : [
+      {
+    		name: "Agus & Silvi",
+    		img: "http://poskotanews.com/cms/wp-content/uploads/2016/09/agus-silvy1.jpg"
+    	},
+    	{
+    		name: "Ahok & Djarot",
+    		img: "http://assets.kompas.com/data/photo/2017/02/15/221710120170215-GAR004780x390.JPG"
+    	},
+    	{
+    		name: "Anies & Sandi",
+    		img: "http://pemilu-news.com/wp-content/uploads/2017/03/Anies-Sandi-Luncurkan-Salam-Bersama-untuk-Jakarta.-700x350.jpeg"
+    	}]
+    }
+  }
 
   render() {
     return (
@@ -20,11 +38,7 @@ export default class CandidateSection extends React.Component {
         <div className="row description">
           <p>This is all candidates which are participated in this election </p>
         </div>
-        <div className="row custom-thumbnail">
-            <CandidateThumbnail img={agusImg} candidate_name="Agus & Silvi"/>
-            <CandidateThumbnail img={ahokImg} candidate_name="Ahok & Djarot"/>
-            <CandidateThumbnail img={aniesImg} candidate_name="Anies & Sandi"/>
-        </div>
+        <CandidateList data={this.state.data}/>
         <div className="row load-more">
           <Button bsStyle='primary' bsSize='large'>Tamplikan Selengkapnya</Button>
         </div>

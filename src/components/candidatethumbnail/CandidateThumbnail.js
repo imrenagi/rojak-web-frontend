@@ -11,7 +11,7 @@ export default class CandidateThumbnail extends React.Component {
           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div className="card">
               <div className="candidate-card-title">
-                <h3>{this.props.candidate_name}</h3>
+                <h3>{this.props.name}</h3>
               </div>
               <div className="candidate-card-divider"></div>
 
