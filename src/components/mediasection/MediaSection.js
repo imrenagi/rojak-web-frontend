@@ -9,7 +9,7 @@ export default class MediaSection extends React.Component {
 
   render() {
     return (
-      <div className="wrapper style1 candidate">
+      <div className="wrapper style1 media">
         <div className="row title">
           <h1>Media Analytics</h1>
         </div>
