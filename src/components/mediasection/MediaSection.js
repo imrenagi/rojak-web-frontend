@@ -5,44 +5,31 @@ import styles from './mediasection.css'
 
 import MediaList from './MediaList'
 
+var APIClient = require('../../services/api.js');
+var client = new APIClient();
+
 export default class MediaSection extends React.Component {
 
   constructor() {
     super()
     this.state = {
-      data : [
-        {
-          name: "Kompas.com",
-          logo: "http://assets.kompas.com/data/2016/wp/images/logokompascom.png",
-          candidate_img: "http://poskotanews.com/cms/wp-content/uploads/2016/09/agus-silvy1.jpg"
-        },
-        {
-          name: "CNN Indonesia",
-          logo: "http://i0.wp.com/smactf.sch.id/news/wp-content/uploads/2016/07/CNN-Indonesia-Logo.jpg",
-          candidate_img: "http://pemilu-news.com/wp-content/uploads/2017/03/Anies-Sandi-Luncurkan-Salam-Bersama-untuk-Jakarta.-700x350.jpeg"
-        },
-        {
-          name: "Detik.com",
-          logo: "http://www.detik.com/dnewgeneration/images/logo1.png",
-          candidate_img: "http://assets.kompas.com/data/photo/2017/02/15/221710120170215-GAR004780x390.JPG"
-        },
-        {
-          name: "NY Times",
-          logo: "http://1000logos.net/wp-content/uploads/2017/04/New-York-Times-Logo.png",
-          candidate_img: "http://pemilu-news.com/wp-content/uploads/2017/03/Anies-Sandi-Luncurkan-Salam-Bersama-untuk-Jakarta.-700x350.jpeg"
-        },
-        {
-          name: "Kumparan",
-          logo: "http://pnptc.s3.amazonaws.com/wp-content/uploads/sites/10/2017/08/Kumparan.png",
-          candidate_img: "http://pemilu-news.com/wp-content/uploads/2017/03/Anies-Sandi-Luncurkan-Salam-Bersama-untuk-Jakarta.-700x350.jpeg"
-        },
-        {
-          name: "Liputan 6",
-          logo: "https://cdn0-a.production.liputan6.static6.com/logos/188/original/083906000_1503994462-088099700_1500456552-049186300_1499071482-Logo_Desktop_Liputan6.png",
-          candidate_img: "http://assets.kompas.com/data/photo/2017/02/15/221710120170215-GAR004780x390.JPG"
-        }
-      ]
+      data : []
     };
+  }
+
+  componentDidMount() {
+    this.loadAllMedia();
+  }
+
+  loadAllMedia() {
+    var self = this;
+    //TODO change the hardcoded part
+    client.loadAllMedia("dkijakarta")
+      .then(function(res) {
+        self.setState({data : res.data.medias});
+      }).catch(function(err) {
+        // console.log(err);
+      });
   }
 
   render() {

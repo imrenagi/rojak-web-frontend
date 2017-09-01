@@ -5,9 +5,7 @@ import styles from './candidatesection.css';
 
 import CandidateList from './CandidateList';
 
-var request = require('superagent');
 var APIClient = require('../../services/api.js');
-
 var client = new APIClient();
 
 export default class CandidateSection extends React.Component {
