@@ -10,7 +10,6 @@
     "build": "webpack -p --display-error-details --color",
     "start": "webpack-dev-server --output-public-path=/dist/"
   },
-  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
@@ -25,6 +24,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "react": "^15.5.3",
     "react-bootstrap": "^0.30.8",

@@ -6,6 +6,9 @@ import styles from './candidatesection.css';
 import CandidateList from './CandidateList';
 
 var request = require('superagent');
+var APIClient = require('../../services/api.js');
+
+var client = new APIClient();
 
 export default class CandidateSection extends React.Component {
 
@@ -20,13 +23,13 @@ export default class CandidateSection extends React.Component {
 
   loadAllCandidate() {
     var self = this;
-    request
-      .get("http://private-anon-b8d16dd661-rojak.apiary-mock.com/elections/dkijakarta/candidates")
-      .set('Accept', 'application/json')
-      .end(function(err, res) {
-        if (err) throw err;
-        self.setState({data : res.body.candidates});
-      })
+    //TODO change the hardcoded part
+    client.loadAllCandidate("dkijakarta")
+      .then(function(res) {
+        self.setState({data : res.data.candidates});
+      }).catch(function(err) {
+        // console.log(err);
+      });
   }
 
   render() {
