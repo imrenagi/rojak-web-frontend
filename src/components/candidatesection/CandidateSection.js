@@ -5,43 +5,28 @@ import styles from './candidatesection.css';
 
 import CandidateList from './CandidateList';
 
-import agusImg from './../../static/img/agus-silvi.jpg'
-import ahokImg from './../../static/img/ahok-djarot.jpg'
-import aniesImg from './../../static/img/anies-sandi.jpg'
+var request = require('superagent');
 
 export default class CandidateSection extends React.Component {
 
   constructor() {
     super();
-    this.state = { data : [
-      {
-    		name: "Agus & Silvi",
-    		img: "http://poskotanews.com/cms/wp-content/uploads/2016/09/agus-silvy1.jpg",
-        counter: {
-          positive_media: 6,
-          negative_media: 2,
-          neutral_media: 3
-        }
-    	},
-    	{
-    		name: "Ahok & Djarot",
-    		img: "http://assets.kompas.com/data/photo/2017/02/15/221710120170215-GAR004780x390.JPG",
-        counter: {
-          positive_media: 4,
-          negative_media: 3,
-          neutral_media: 8
-        }
-    	},
-    	{
-    		name: "Anies & Sandi",
-    		img: "http://pemilu-news.com/wp-content/uploads/2017/03/Anies-Sandi-Luncurkan-Salam-Bersama-untuk-Jakarta.-700x350.jpeg",
-        counter: {
-          positive_media: 2,
-          negative_media: 8,
-          neutral_media: 7
-        }
-    	}]
-    }
+    this.state = { data : [] }
+  }
+
+  componentDidMount() {
+    this.loadAllCandidate();
+  }
+
+  loadAllCandidate() {
+    var self = this;
+    request
+      .get("http://private-anon-b8d16dd661-rojak.apiary-mock.com/elections/dkijakarta/candidates")
+      .set('Accept', 'application/json')
+      .end(function(err, res) {
+        if (err) throw err;
+        self.setState({data : res.body.candidates});
+      })
   }
 
   render() {
