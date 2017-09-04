@@ -7,6 +7,30 @@
 
 }
 
+.row.title h1::after {
+  content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #fbed20;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #3fa9f5;
+    margin-top: 10px;
+}
+
+.container-atas {
+  width: 90%;
+  height: 100%;
+  margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .title {
   font-size: 30px;
   padding-top: 20px;

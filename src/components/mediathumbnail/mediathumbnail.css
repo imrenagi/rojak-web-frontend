@@ -17,8 +17,8 @@
 
 .media-card-logo {
   object-fit: cover;
-  width: 100%;
-  height: 200px;
+  width: auto;
+  height: 100px;
   min-height: 50px;
   max-height: 100px;
   margin-bottom: 5px;
@@ -33,6 +33,12 @@
   margin-bottom: 5px;
 }
 
+.cimg-responsive {
+  width: auto;
+  height: 100%;
+}
+
 h1, h2, h3, p {
   position: relative;
 }
+
