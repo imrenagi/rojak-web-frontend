@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack -p --display-error-details --color",
-    "start": "webpack-dev-server --output-public-path=/dist/"
+    "start": "webpack-dev-server --history-api-fallback --output-public-path=/dist/"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -30,6 +30,7 @@
     "react": "^15.5.3",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.3",
+    "react-router-dom": "^4.2.2",
     "superagent": "^3.6.0"
   }
 }

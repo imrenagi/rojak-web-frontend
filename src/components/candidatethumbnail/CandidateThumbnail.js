@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap'
+import { Route } from 'react-router-dom'
 import CandidateCounter from './CandidateCounter'
 
 import styles from './candidatethumbnail.css'
@@ -7,22 +8,25 @@ import styles from './candidatethumbnail.css'
 export default class CandidateThumbnail extends React.Component {
 
   render() {
-    return (
-          <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <div className="card">
-              <div className="candidate-card-title">
-                <h3>{this.props.name}</h3>
-              </div>
-              <div className="candidate-card-divider"></div>
 
-              <div className="candidate-card-image-link">
-                <Image className="candidate-card-image" src={this.props.img} responsive/>
-              </div>
-              <div className="candidate-card-counter">
-                <CandidateCounter counter={this.props.counter}/>
-              </div>
+    return (
+      <Route render={({ history}) => (
+        <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div className="card" onClick = {() => { history.push('/election/dkijakarta/candidate/'+this.props.name) }}>
+            <div className="candidate-card-title">
+              <h3>{this.props.name}</h3>
+            </div>
+            <div className="candidate-card-divider"></div>
+
+            <div className="candidate-card-image-link" >
+              <Image className="candidate-card-image" src={this.props.img} responsive/>
+            </div>
+            <div className="candidate-card-counter">
+              <CandidateCounter counter={this.props.counter}/>
             </div>
           </div>
-        );
+        </div>
+      )} />
+    );
   }
 }
