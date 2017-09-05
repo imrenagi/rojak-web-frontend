@@ -34,3 +34,36 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
+@media (max-width: 500px) .container-video {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (max-width: 568px) .container-video {
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) .container-video {
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 100%;
+}
+
+@media (max-width: 992px) .container-video {
+  max-width: 940px;
+}
+
+@media (max-width: 1200) .container-video {
+  max-width: 1140px;
+}
+
+@media (min-width: 544px) .container-video {
+  max-width: 576px;
+}
+
+@media (max-width: 380px) .container-video {
+  margin: 0;
+}
