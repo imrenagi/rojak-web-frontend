@@ -1,12 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.css'
 
-import Home from './components/home/Home'
-import CandidateDetail from './components/candidatedetail/CandidateDetail'
+import App from './components/App'
 
-ReactDOM.render(
-  <Home />,
-  document.getElementById('app')
-)
+render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>), document.getElementById('app'));

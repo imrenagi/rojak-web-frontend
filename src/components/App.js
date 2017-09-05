@@ -1,12 +1,14 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-const App = ({ message = 'Hello ReactXXX=SSS!' }) => (
-  <Button bsStyle='primary' bsSize='large'>{message}</Button>
-)
+import Main from './routes/Main'
 
-App.propTypes = {
-  message: React.PropTypes.string
-}
-
-export default App
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Main />
+      </div>
+    );
+  }
+ }
