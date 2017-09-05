@@ -29,5 +29,6 @@
 }
 
 .wrapper.style2 {
-  background-color: #eff5f5;
+  border-bottom: 1px solid rgba(144, 144, 144, 0.25);
+  background-color: #efefef;
 }
