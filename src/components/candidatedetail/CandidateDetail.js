@@ -1,7 +1,11 @@
 import React from 'react';
+import { Image } from 'react-bootstrap'
 
 import styles from './candidatedetail.css'
+import AniesImg from './../../static/img/anies-sandi.jpg'
+
 import Chart from '../charts/Chart'
+import MediaBreakdown from '../mediabreakdown/MediaBreakdown'
 
 export default class CandidateDetail extends React.Component {
 
@@ -54,8 +58,23 @@ export default class CandidateDetail extends React.Component {
 
   render() {
     return (
-      <div>
-          <Chart container="chart" options={this.state.options} />
+      <div className="container">
+        <div className="row">
+          <div>
+            <div>
+              <h1> Anies Baswedan & Sandiaga Unox </h1>
+            </div>
+            <div>
+              <Image className="candidate-card-image" src={AniesImg} responsive/>
+            </div>
+          </div>
+        </div>
+        <div className="row chart">
+            <Chart container="chart" options={this.state.options} />
+        </div>
+        <div className="row">
+            <MediaBreakdown />
+        </div>
       </div>
     );
   }
