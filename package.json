@@ -26,6 +26,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
+    "highcharts": "^5.0.14",
     "react": "^15.5.3",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.3",
