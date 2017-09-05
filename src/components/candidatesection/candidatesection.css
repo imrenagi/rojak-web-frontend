@@ -14,11 +14,11 @@
     height: 4px;
     background: #fbed20;
     position: absolute;
-    bottom: 0;
+    bottom: -7px;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    background-color: #3fa9f5;
+    background-color: #dca9a9;
     margin-top: 10px;
 }
 
@@ -35,6 +35,7 @@
   font-size: 30px;
   padding-top: 20px;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .candidate .description {
