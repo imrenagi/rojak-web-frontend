@@ -16,7 +16,7 @@ export default class VideoSection extends React.Component {
           <div className="video-thumbnail">
             <div className="container-video">
               <div className="embed-responsive embed-responsive-16by9">
-                <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/9biIOtEYeHc"></iframe>
+                <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/UtjFu8c_goE"></iframe>
               </div>
             </div>
           </div>
