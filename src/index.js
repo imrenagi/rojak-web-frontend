@@ -7,6 +7,6 @@ import Home from './components/home/Home'
 import CandidateDetail from './components/candidatedetail/CandidateDetail'
 
 ReactDOM.render(
-  <CandidateDetail />,
+  <Home />,
   document.getElementById('app')
 )
