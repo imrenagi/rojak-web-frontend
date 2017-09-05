@@ -18,6 +18,9 @@ export default class MediaThumbnail extends React.Component {
               <div className="media-card-divider"></div>
               <div className="media-card-candidate-img">
                 <Image src={this.props.candidate_img} className="media-card-image img-responsive" />
+                <div className="detail-btn">
+                  <button type="button" className="btn btn-lg btn-primary">Lihat Detail</button>
+                </div>
               </div>
             </div>
           </div>

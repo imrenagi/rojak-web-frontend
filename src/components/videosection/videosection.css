@@ -19,8 +19,6 @@
 }
 
 .video-thumbnail {
-  height: 100%;
-  width: 100%;
   padding: 50px;
 }
 
@@ -29,11 +27,10 @@
   background-color: #eff5f5;
 }
 
-.container-atas {
-  width: 90%;
-  height: 100%;
+.container-video {
+  width: 60%;
   margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
