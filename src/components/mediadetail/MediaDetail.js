@@ -2,13 +2,27 @@ import React from 'react';
 import { Image } from 'react-bootstrap'
 
 import Chart from '../charts/Chart'
+import NewsSection from './NewsSection'
 
 export default class MediaDetail extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      data : [],
+      data : [{
+        url: "https://news.detik.com/berita/d-3631776/tiba-di-singapura-jokowi-langsung-temui-wni?_ga=2.170848544.1030738785.1504715262-247128134.1446071600",
+        title: "Tiba di Singapura, Jokowi Langsung Temui WNI",
+        timestamp: 1500534737000,
+        content: "Singapura - Presiden Joko Widodo telah tiba di Singapura. Agenda pertama yang dia lakukan yakni langsung melakukan pertemuan dengan WNI yang ada di 'Negeri Singa' tersebut. Deputi Bidang Protokol, Pers, dan Media Sekretariat Presiden mengatakan, ketibaan Jokowi di Bandara Internasional Changi Singapura, Rabu (6/9/2017) disambut langsung oleh Duta Besar Indonesia untuk Singapura I Gusti Ngurah Swajaya, Menteri Pendidikan Singapura Ong Ye Kung dan Duta Besar Singapura untuk Indonesia Anil Kumar Nayar.",
+        sentiments: ["Positif Ahok", "Negatif Jokowi"]
+      }, {
+        url: "https://travel.detik.com/fototravel/d-3631777/foto-wanita-cantik-yang-dibayar-buat-tidur-di-hotel-mewah?_ga=2.212807956.1030738785.1504715262-247128134.1446071600",
+        title: "Foto: Wanita cantik yang Dibayar Buat Tidur di Hotel Mewah",
+        timestamp: 1500534737000,
+        content: "Melbourne - Menginap di hotel mewah tentu jadi keinginan para traveler. Namun tahukah kamu? Wanita cantik ini malah dibayar untuk tidur di hotel mewah.",
+        sentiments: ["Positif Ahok", "Negatif Jokowi"]
+      }
+    ],
       options: {
           title: {
               text: 'Sentiment Trends from all media'
@@ -77,7 +91,7 @@ export default class MediaDetail extends React.Component {
             </div>
         </div>
         <div className="row">
-            Temporary
+            <NewsSection data={this.state.data}/>
         </div>
       </div>
     );

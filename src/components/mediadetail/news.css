@@ -1,0 +1,30 @@
+.container {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+.news-title {
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+.news-url {
+  color: green;
+}
+
+.news-content {
+
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.news-date {
+  font-weight: bold;
+}
+
+.news-sentiment {
+  font-style: italic;
+}
