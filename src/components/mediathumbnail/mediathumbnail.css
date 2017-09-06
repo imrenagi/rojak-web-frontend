@@ -14,6 +14,18 @@
   font-size: 16px;
 }
 
+.btn-primary:focus, .btn-primary:active:focus {
+  border-color: transparent;
+}
+
+.btn-primary:active {
+  border-color: transparent;
+}
+
+.btn:focus, .btn:active:focus {
+  outline: transparent;
+}
+
 .btn-primary:hover {
   border-color: transparent;
 }
