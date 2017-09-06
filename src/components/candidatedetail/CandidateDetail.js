@@ -44,12 +44,15 @@ export default class CandidateDetail extends React.Component {
 
           series: [{
               name: 'Positive News',
+              color: '#00FF00',
               data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
           }, {
               name: 'Negative News',
+              color: '#FF0000',
               data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
           }, {
               name: 'Neutral News',
+              color: '#0000FF',
               data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
           }]
         }
