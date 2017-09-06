@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack -p --display-error-details --color",
-    "start": "webpack-dev-server --history-api-fallback --output-public-path=/dist/"
+    "start": "webpack-dev-server --history-api-fallback --output-public-path=/dist/ --host 0.0.0.0 --port 8080"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
