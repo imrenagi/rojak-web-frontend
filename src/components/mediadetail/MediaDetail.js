@@ -24,45 +24,119 @@ export default class MediaDetail extends React.Component {
       }
     ],
       options: {
-          title: {
-              text: 'Sentiment Trends from all media'
-          },
-
-          subtitle: {
-              text: 'This belongs to Jokowi and Anies in Pilkada DKI'
-          },
-
-          yAxis: {
-              title: {
-                  text: 'Number of News'
+        positive_stat:
+        {
+            title: {
+                text: 'Tren Berita Positif'
+            },
+            subtitle: {
+                text: 'Jumlah berita positif untuk masing-masing kandidat'
+            },
+            yAxis: {
+                title: {
+                    text: 'Jumlah berita'
+                }
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            plotOptions: {
+              series: {
+                  pointStart: Date.UTC(2010, 0, 1),
+                  pointInterval: 24 * 3600 * 1000 // one day
               }
+            },
+            series: [{
+                name: 'Ahok',
+                data: [3,5,7,3,5]
+            }, {
+                name: 'Jokowi',
+                data: [18,29,30,23,33]
+            }, {
+                name: 'Anies',
+                data: [10,23,13,24,23]
+            }]
           },
-          legend: {
-              layout: 'horizontal',
-              align: 'center',
-              verticalAlign: 'bottom'
+        negative_stat: {
+            title: {
+                text: 'Tren Berita Negatif'
+            },
+            subtitle: {
+                text: 'Jumlah berita negatif untuk masing-masing kandidat'
+            },
+            yAxis: {
+                title: {
+                    text: 'Jumlah berita'
+                }
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            plotOptions: {
+              series: {
+                  pointStart: Date.UTC(2010, 0, 1),
+                  pointInterval: 24 * 3600 * 1000 // one day
+              }
+            },
+            series: [{
+                name: 'Ahok',
+                data: [21,32,12,32,42]
+            }, {
+                name: 'Jokowi',
+                data: [12,15,4,23,5]
+            }, {
+                name: 'Anies',
+                data: [42,32,14,23,43]
+            }]
           },
-          xAxis: {
-              type: 'datetime'
-          },
-          plotOptions: {
-            series: {
-                pointStart: Date.UTC(2010, 0, 1),
-                pointInterval: 24 * 3600 * 1000 // one day
-            }
-          },
-
-          series: [{
-              name: 'Positive News',
-              data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-          }, {
-              name: 'Negative News',
-              data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-          }, {
-              name: 'Neutral News',
-              data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-          }]
-        }
+        neutral_stat: {
+            title: {
+                text: 'Tren Berita Netral'
+            },
+            subtitle: {
+                text: 'Jumlah berita netral untuk masing-masing kandidat'
+            },
+            yAxis: {
+                title: {
+                    text: 'Jumlah berita'
+                }
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            },
+            xAxis: {
+                type: 'datetime'
+            },
+            plotOptions: {
+              series: {
+                  pointStart: Date.UTC(2010, 0, 1),
+                  pointInterval: 24 * 3600 * 1000 // one day
+              }
+            },
+            series: [{
+                name: 'Ahok',
+                data: [1,3,5,10,15]
+            }, {
+                name: 'Jokowi',
+                data: [2,3,4,3,2]
+            }, {
+                name: 'Anies',
+                data: [6,4,8,10,12]
+            }]
+          }
+      }
     }
   }
 
@@ -81,13 +155,13 @@ export default class MediaDetail extends React.Component {
         </div>
         <div className="row chart">
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <Chart container="chart1" options={this.state.options} />
+              <Chart container="chart1" options={this.state.options.positive_stat} />
             </div>
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <Chart container="chart2" options={this.state.options} />
+              <Chart container="chart2" options={this.state.options.negative_stat} />
             </div>
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <Chart container="chart3" options={this.state.options} />
+              <Chart container="chart3" options={this.state.options.neutral_stat} />
             </div>
         </div>
         <div className="row">
