@@ -3,11 +3,15 @@ import { Switch, Route } from 'react-router-dom'
 
 import Home from './../home/Home'
 import CandidateDetail from './../candidatedetail/CandidateDetail'
+import MediaDetail from './../mediadetail/MediaDetail'
+
+import CandidateRouter from './CandidateRouter'
+import MediaRouter from './MediaRouter'
 
 const ElectionRoute = () => (
   <Switch>
-    <Route exact path='/election' component={CandidateDetail}/>
-    <Route path='/election/:electionId/candidate/:candidateId' component={CandidateDetail}/>
+    <Route  path='/election/:electionId/candidate' component={CandidateRouter}/>
+    <Route  path='/election/:electionId/media' component={MediaRouter}/>
   </Switch>
 )
 
