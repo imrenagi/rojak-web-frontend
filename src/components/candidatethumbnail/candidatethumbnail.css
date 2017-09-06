@@ -24,7 +24,17 @@
 }
 
 .candidate-card-image-link {
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
 
+.candidate-card-image-link:hover .candidate-card-image {
+  opacity: 0.3;
+}
+
+.candidate-card-image-link:hover .detail-btn{
+  opacity: 1;
+  top:48%;
 }
 
 .candidate-card-image {

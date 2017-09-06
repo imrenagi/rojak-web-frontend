@@ -20,6 +20,9 @@ export default class CandidateThumbnail extends React.Component {
 
             <div className="candidate-card-image-link" >
               <Image className="candidate-card-image" src={this.props.img} responsive/>
+              <div className="detail-btn">
+                <button type="button" className="btn btn-lg btn-primary">Lihat Detail</button>
+              </div>
             </div>
             <div className="candidate-card-counter">
               <CandidateCounter counter={this.props.counter}/>
