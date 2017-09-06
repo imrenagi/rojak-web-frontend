@@ -16,6 +16,10 @@ module.exports = {
     sourceMapFilename: 'bundle.map.js'
   },
   devtool: '#source-map',
+  devServer: {
+    compress: true,
+    disableHostCheck: true
+  },
   module: {
     // How to process project files with loaders
     loaders: [
