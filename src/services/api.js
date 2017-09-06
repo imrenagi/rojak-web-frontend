@@ -22,6 +22,14 @@ class APIClient {
       responseType: 'json'
     })
   }
+
+  loadAllNewsOfMedia(electionId, mediaId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl+"/analytics/medias/"+mediaId+"/elections/"+electionId+"/news",
+      responseType: 'json'
+    })
+  }
 }
 
 module.exports = APIClient;
