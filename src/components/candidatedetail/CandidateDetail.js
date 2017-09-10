@@ -6,6 +6,7 @@ import AniesImg from './../../static/img/anies-sandi.jpg'
 
 import Chart from '../charts/Chart'
 import MediaBreakdown from '../mediabreakdown/MediaBreakdown'
+import CandidateInfo from './CandidateInfo'
 
 export default class CandidateDetail extends React.Component {
 
@@ -62,14 +63,19 @@ export default class CandidateDetail extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
+        <div className="row candidate-section">
           <div>
-            <div>
-              <h1> Anies Baswedan & Sandiaga Unox </h1>
-            </div>
-            <div>
-              <Image className="candidate-card-image" src={AniesImg} responsive/>
-            </div>
+            <h2> Anies Baswedan & Sandiaga Uno </h2>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <CandidateInfo
+              name="Anies Baswedan"
+              image_url="http://cerita.picmix.it/assets/file_upload/admin/images/Quotes_Anies_Baswedan_yang_Patut_Kamu_Renungkan_Untuk_Jadi_Pencerahan_di_Masa_Depan.jpg"/>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <CandidateInfo
+              name="Sandiaga Uno"
+              image_url="http://cdn2.tstatic.net/kaltim/foto/bank/images/sandiaga-uno_20160322_195936.jpg"/>
           </div>
         </div>
         <div className="row chart">
