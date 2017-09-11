@@ -1,7 +1,10 @@
 .chart {
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
+.candidate-section {
+  padding-top: 10px;
 }
