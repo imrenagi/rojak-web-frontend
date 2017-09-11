@@ -9,6 +9,15 @@
   color : white;
 }
 
+.carousel-caption {
+  bottom: 800px;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 500px;
+}
+
 @media screen and (min-width: 576px) {
   h1 { font-size: 25px; }
   h2 { font-size: 20px; }
