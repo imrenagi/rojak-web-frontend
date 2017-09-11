@@ -12,9 +12,9 @@ export default class CandidateInfo extends React.Component {
 
   render() {
     return (
-        <div className="row container">
+        <div className="row container-detail">
           <div>
-            <Image className="candidate-card-image"
+            <Image className="candidate-detail-card-image"
               src={this.props.image_url}
               responsive/>
             <h3>{this.props.name}</h3>

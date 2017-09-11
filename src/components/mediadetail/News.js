@@ -15,7 +15,7 @@ export default class News extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container-media">
         <div className="news-title">
           <a href={this.props.url}>
             <h3>{this.props.title}</h3>

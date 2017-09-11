@@ -1,11 +1,11 @@
-.container {
+.container-detail {
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
   padding-top: 20px;
 }
 
-.candidate-card-image {
+.candidate-detail-card-image {
   object-fit: cover;
   width: 100%;
   height: 300px;
