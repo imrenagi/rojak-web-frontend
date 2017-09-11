@@ -10,26 +10,22 @@
 }
 
 .carousel-caption {
-  bottom: 800px;
 }
 
-.carousel-inner {
-  width: 100%;
+.carousel-inner .item {
   height: 500px;
 }
 
-@media screen and (min-width: 576px) {
-  h1 { font-size: 25px; }
-  h2 { font-size: 20px; }
-  p { font-size: 16px; }
-
-  .header-content {
-    top: 100px;
+@media screen and (max-width: 800px) {
+  .carousel-inner .item {
+    height: 100%;
+    width: auto;
   }
+}
 
-  .header-bg {
-    min-height: 300px;
-  }
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 @media screen and (min-width: 768px) {
