@@ -2,18 +2,27 @@
 const webpack = require('webpack')
 const path = require('path')
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './index.html',
+  filename: 'index.html',
+  inject: 'body'
+})
+
+var BUILD_DIR = path.resolve(__dirname, 'public');
+var APP_DIR = path.resolve(__dirname, 'src');
+
 module.exports = {
   // Which file is the entry point to the application
-  entry: './src/index.js',
+  entry: APP_DIR + '/index.js',
   // Which file types are in our project, and where they are located
   resolve: {
     extensions: ['.js', '.jsx']
   },
   // Where to output the final bundled code to
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    sourceMapFilename: 'bundle.map.js'
+    path: BUILD_DIR,
+    filename: 'bundle.js'
   },
   devtool: '#source-map',
   devServer: {
@@ -46,5 +55,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [HtmlWebpackPluginConfig]
 }
