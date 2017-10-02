@@ -96,7 +96,7 @@ export default class HorizontalBarChart extends React.Component {
 
         let xScale = d3.scaleLinear()
             .domain([0, 100])
-            .range([0, maxVal]);
+            .range([0, grandTotalVal]);
 
         let yScale = d3.scaleBand()
             .domain(yAxisItems.map((d) => d.name))
@@ -136,6 +136,11 @@ export default class HorizontalBarChart extends React.Component {
             .attr('class', 'y-axis')
             .call(d3.axisLeft(yScale));
 
+        // tooltip
+        let tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip');
+
         // bars
         chartGroup.selectAll('.bar')
             .data(yAxisItems)
@@ -167,7 +172,19 @@ export default class HorizontalBarChart extends React.Component {
             .attr('x', 0)
             .attr('height', yScale.bandwidth())
             .attr('y', d => yScale(d.name))
-            .attr('fill', d => d.color);
+            .attr('fill', d => d.color)
+            .on("mousemove", function(d) {
+                tooltip.classed('visible', true);
+
+                let percentage = (d.value / grandTotalVal).toFixed(2) * 100;
+
+                tooltip.text(`${d.value} berita - ${percentage}%`)
+                    .style(`left`, `${d3.event.pageX + 10}px`)
+                    .style(`top`, `${d3.event.pageY - 10}px`);
+            })
+            .on("mouseout", function(d) {
+                tooltip.classed('visible', false);
+       });
 
         // bar text (percentage)
         // chartGroup.selectAll('.bar-label.percentage')
