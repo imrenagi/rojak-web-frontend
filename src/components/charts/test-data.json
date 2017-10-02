@@ -1,0 +1,9 @@
+{
+ "short_name": "Agus-Silvy",
+ "statistic": {
+        "total_news": 1000,
+        "total_pos_news": 500,
+        "total_neg_news": 200,
+        "total_neutral_news": 300
+      }
+}
