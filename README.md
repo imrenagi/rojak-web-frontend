@@ -76,7 +76,7 @@ member ASAP.
 
 ### Environment
 
-The test environment utilizes [Jest :black_jester:](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme) to test react components.
+The test environment utilizes [Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme) to test react components.
 
 ### Writing a test
 
