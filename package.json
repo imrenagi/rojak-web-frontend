@@ -47,6 +47,7 @@
     "dependencies": {
         "axios": "^0.16.2",
         "bootstrap": "^3.3.7",
+        "d3": "^4.11.0",
         "fiber-css": "0.5.1",
         "highcharts": "^5.0.14",
         "html-webpack-plugin": "^2.30.1",
