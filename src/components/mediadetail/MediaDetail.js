@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 import Chart from '../charts/Chart'
 import NewsSection from './NewsSection'
@@ -153,6 +154,9 @@ export default class MediaDetail extends React.Component {
           <div>
             <div>
               <Image src={"http://assets.kompas.com/data/2016/wp/images/logokompascom.png"} responsive/>
+            </div>
+            <div>
+              <Button bsSize="large" target="_blank" href="https://facebook.com/">Kunjungi Website</Button>
             </div>
           </div>
         </div>
