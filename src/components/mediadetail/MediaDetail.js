@@ -152,9 +152,6 @@ export default class MediaDetail extends React.Component {
         <div className="row">
           <div>
             <div>
-              <h1> Kompas </h1>
-            </div>
-            <div>
               <Image src={"http://assets.kompas.com/data/2016/wp/images/logokompascom.png"} responsive/>
             </div>
           </div>
