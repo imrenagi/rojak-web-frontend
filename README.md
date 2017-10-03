@@ -71,3 +71,91 @@ been invited to Trello board. If that's the case, please create an issue and put
 description about which task that you want to work on. We will add you to the team
 member ASAP.
 * Please go and check out [Contributing Code of Conduct](./CONTRIBUTING.md)
+
+## Testing
+
+### Environment
+
+The test environment utilizes [Jest :black_jester:](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme) to test react components.
+
+### Writing a test
+
+It is really helpful to write your tests before writing a component. This allows you to think out what the component needs to do before diving in!
+
+Your first test should be pretty simple, testing that the component is rendering anything! For example for a component called `Header` a simple render test using enzyme would look like:
+
+```javascript
+import React from 'react';
+
+import { mount } from 'enzyme';
+
+import chai from 'chai';
+
+describe('Header', () => {
+    describe('rendering', () => {
+        it('should render something', () => {
+            chai.expect(mount(<Header />).html()).to.not.equal(null);
+        });
+    });
+});
+```
+
+After getting some output from your component you can incrementally add new structural features that your header needs, like an inner container to handle responsiveness. Testing any more structural parts of your component that isn't the root you can test them using the `.find()` and `.exists()` methods from enzyme.
+
+```javascript
+import React from 'react';
+
+import { mount } from 'enzyme';
+
+import chai from 'chai';
+
+describe('Header', () => {
+    describe('rendering', () => {
+        it('should render something', () => {
+            chai.expect(mount(<Header />).html()).to.not.equal(null);
+        });
+
+        it('should render an inner container', () => {
+            const wrapper = mount(<Header />);
+
+            chai.expect(wrapper.find('div.inner').exists()).to.be.true;
+        });
+    });
+});
+```
+
+### Snapshots
+
+Snapshots are a simple way to legacy test components you have written. They will notify you of any structural changes to your component and show you a neatly printed diff of the html including props. With jest writing snapshot test is simple!
+
+```javascript
+import React from 'react';
+
+import { mount } from 'enzyme';
+
+import renderer from 'react-test-renderer';
+
+import chai from 'chai';
+
+describe('Header', () => {
+    describe('rendering', () => {
+        it('should render something', () => {
+            chai.expect(mount(<Header />).html()).to.not.equal(null);
+        });
+
+        it('should render an inner container', () => {
+            const wrapper = mount(<Header />);
+
+            chai.expect(wrapper.find('div.inner').exists()).to.be.true;
+        });
+    });
+
+    describe('snapshots', () => {
+        it('should match the snapshot', () => {
+            expect(renderer.create(<Header />).toJSON()).toMatchSnapshot();
+        });
+    });
+});
+```
+
+Running this test for the first time will generate the snapshot file. Every run after that will check the difference of the render to the snapshot file and if there are differences. If there are differences you want to keep you can run the tests again using the `-u` flag which re-writes the snapshot file.
