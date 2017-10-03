@@ -4,7 +4,7 @@
 
   margin-left: -15px;
   margin-right: -15px;
-
+  height: 300px;
 }
 
 .row.title h1::after {
