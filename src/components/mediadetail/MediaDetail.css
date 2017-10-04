@@ -1,0 +1,10 @@
+.related-hashtag {
+  text-align: left;
+  color: #808080;
+  padding: 40px;
+}
+
+.divider {
+    border-top: 3px solid rgba(144, 144, 144, 0.25);
+    border-bottom: 3px solid rgba(144, 144, 144, 0.25);
+  }
