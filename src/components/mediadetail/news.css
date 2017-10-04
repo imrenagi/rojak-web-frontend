@@ -5,6 +5,10 @@
   text-align: left;
 }
 
+.img-logo{
+  margin: 0 auto;
+}
+
 .news-title {
   padding-top: 20px;
   padding-bottom: 0px;
