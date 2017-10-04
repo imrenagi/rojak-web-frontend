@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap'
 import Chart from '../charts/Chart'
 import NewsSection from './NewsSection'
 
+import styles from './news.css'
 var APIClient = require('../../services/api.js');
 var client = new APIClient();
 
@@ -153,7 +154,7 @@ export default class MediaDetail extends React.Component {
         <div className="row">
           <div>
             <div>
-              <Image src={"http://assets.kompas.com/data/2016/wp/images/logokompascom.png"} responsive/>
+              <Image className="img-logo" src={"http://assets.kompas.com/data/2016/wp/images/logokompascom.png"} responsive />
             </div>
             <div>
               <Button bsSize="large" target="_blank" href="https://facebook.com/">Kunjungi Website</Button>
