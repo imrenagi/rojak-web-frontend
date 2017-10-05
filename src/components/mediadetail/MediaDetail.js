@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap'
 
 import Chart from '../charts/Chart'
 import NewsSection from './NewsSection'
+import RelatedTagSection from './RelatedTagSection'
 
 var APIClient = require('../../services/api.js');
 var client = new APIClient();
@@ -14,6 +15,7 @@ export default class MediaDetail extends React.Component {
     super();
     this.state = {
       data : [],
+      related_tag : ["pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi"],
       options: {
         positive_stat:
         {
@@ -170,6 +172,9 @@ export default class MediaDetail extends React.Component {
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
               <Chart container="chart3" options={this.state.options.neutral_stat} />
             </div>
+        </div>
+        <div className="row divider">
+            <RelatedTagSection related_tag={this.state.related_tag}/>
         </div>
         <div className="row">
             <NewsSection data={this.state.data}/>
