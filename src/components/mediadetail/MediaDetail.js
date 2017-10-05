@@ -4,8 +4,7 @@ import { Button } from 'react-bootstrap'
 
 import Chart from '../charts/Chart'
 import NewsSection from './NewsSection'
-
-import styles from './MediaDetail.css';
+import RelatedTagSection from './RelatedTagSection'
 
 var APIClient = require('../../services/api.js');
 var client = new APIClient();
@@ -16,7 +15,7 @@ export default class MediaDetail extends React.Component {
     super();
     this.state = {
       data : [],
-      hashtagTerkait : ["pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi"],
+      related_tag : ["pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi", "pemilujakarta", "pemiludki", "agussilvi", "ahokdjarot", "aniessandi"],
       options: {
         positive_stat:
         {
@@ -174,13 +173,8 @@ export default class MediaDetail extends React.Component {
               <Chart container="chart3" options={this.state.options.neutral_stat} />
             </div>
         </div>
-        <div className="divider row related-hashtag">
-            <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <h1>Hashtag Terkait</h1>
-            </div>
-            <div className="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-              <h3>{this.state.hashtagTerkait.map((item) => "#" + item + " ")}</h3>
-            </div>
+        <div className="row divider">
+            <RelatedTagSection related_tag={this.state.related_tag}/>
         </div>
         <div className="row">
             <NewsSection data={this.state.data}/>
