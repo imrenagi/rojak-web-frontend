@@ -1,7 +1,5 @@
 import React from 'react';
 
-import style from './RelatedTag.css'
-
 export default class RelatedTagSection extends React.Component {
 
   constructor() {
@@ -10,7 +8,7 @@ export default class RelatedTagSection extends React.Component {
 
   render() {
     return (
-      <div className="related-tag">
+      <div>
         <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
           <h1>Hashtag Terkait</h1>
         </div>
