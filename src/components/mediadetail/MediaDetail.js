@@ -6,7 +6,8 @@ import Chart from '../charts/Chart'
 import NewsSection from './NewsSection'
 import RelatedTagSection from './RelatedTagSection'
 
-import styles from './news.css'
+import styles from './MediaDetail.css'
+
 var APIClient = require('../../services/api.js');
 var client = new APIClient();
 
@@ -174,7 +175,7 @@ export default class MediaDetail extends React.Component {
               <Chart container="chart3" options={this.state.options.neutral_stat} />
             </div>
         </div>
-        <div className="row divider">
+        <div className="row divider related-tag">
             <RelatedTagSection related_tag={this.state.related_tag}/>
         </div>
         <div className="row">
