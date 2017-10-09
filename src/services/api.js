@@ -1,35 +1,35 @@
-"use strict";
+'use strict'
 
-var axios = require('axios');
+var axios = require('axios')
 
 class APIClient {
-  constructor() {
-    this.baseUrl = "http://private-anon-b8d16dd661-rojak.apiary-mock.com";
+  constructor () {
+    this.baseUrl = 'http://private-anon-b8d16dd661-rojak.apiary-mock.com'
   }
 
-  loadAllCandidate(electionId) {
+  loadAllCandidate (electionId) {
     return axios({
       method: 'get',
-      url: this.baseUrl+"/elections/"+electionId+"/candidates",
+      url: this.baseUrl + '/elections/' + electionId + '/candidates',
       responseType: 'json'
     })
   }
 
-  loadAllMedia(electionId) {
+  loadAllMedia (electionId) {
     return axios({
       method: 'get',
-      url: this.baseUrl+"/analytics/elections/"+electionId+"/medias?page=1&limit=6",
+      url: this.baseUrl + '/analytics/elections/' + electionId + '/medias?page=1&limit=6',
       responseType: 'json'
     })
   }
 
-  loadAllNewsOfMedia(electionId, mediaId) {
+  loadAllNewsOfMedia (electionId, mediaId) {
     return axios({
       method: 'get',
-      url: this.baseUrl+"/analytics/medias/"+mediaId+"/elections/"+electionId+"/news",
+      url: this.baseUrl + '/analytics/medias/' + mediaId + '/elections/' + electionId + '/news',
       responseType: 'json'
     })
   }
 }
 
-module.exports = APIClient;
+module.exports = APIClient

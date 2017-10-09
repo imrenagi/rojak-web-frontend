@@ -17,11 +17,16 @@ module.exports = {
   entry: APP_DIR + '/index.js',
   // Which file types are in our project, and where they are located
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
   },
   // Where to output the final bundled code to
   output: {
     path: BUILD_DIR,
+    publicPath: '/',
     filename: 'bundle.js'
   },
   devtool: '#source-map',
