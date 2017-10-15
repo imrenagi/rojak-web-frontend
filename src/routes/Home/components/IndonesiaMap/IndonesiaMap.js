@@ -49,6 +49,9 @@ class IndonesiaMap extends Component {
     console.log(data)
     this.state = {
       options: {
+        chart: {
+        		height:800
+        },
         title: {
             text: ''
         },
