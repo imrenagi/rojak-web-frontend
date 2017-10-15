@@ -22,7 +22,7 @@ export default class HorizontalBarChart extends React.Component {
       // the default width and height should be changed to fit your needs
       const defaultOptions = {
         width:  1400,
-        height: 450,
+        height: 350,
         titleHeight: 75,
         barHeight: 50,
         cornerRadius: 10
