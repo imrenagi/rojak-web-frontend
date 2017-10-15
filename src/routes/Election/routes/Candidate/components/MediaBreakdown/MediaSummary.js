@@ -1,7 +1,5 @@
 import React from 'react'
-import {  Image, Card } from 'semantic-ui-react'
-
-import './MediaSummary.css'
+import {  Image, Divider } from 'semantic-ui-react'
 
 export default class MediaSummary extends React.Component {
   constructor () {
@@ -12,12 +10,9 @@ export default class MediaSummary extends React.Component {
 
   render () {
     return (
-        <div className='segment-media'>
-          <Card centered href={'#' + this.props.logo_url}>
-            <Card.Content>
-              <Image centered='true' src={this.props.logo_url} />
-            </Card.Content>
-          </Card>
+        <div>
+          <Image centered='true' src={this.props.logo_url} />
+          <Divider />
         </div>
     )
   }

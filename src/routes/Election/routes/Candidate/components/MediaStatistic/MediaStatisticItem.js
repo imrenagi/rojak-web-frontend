@@ -79,7 +79,7 @@ export default class MediaStatistic extends React.Component {
 
   render () {
     return (
-      <Item id={this.props.logo_url}>
+      <Item>
         <div className='media-info-card col-lg-3 col-md-3 col-sm-12 col-xs-12 '>
           <Card fluid className='text-centered'>
             <Image src={this.props.logo_url} />

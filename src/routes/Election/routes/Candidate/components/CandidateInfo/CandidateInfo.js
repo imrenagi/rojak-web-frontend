@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Popup, Button, Grid } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 import Chart from 'components/charts/Chart'
 
@@ -58,41 +58,28 @@ export default class CandidateInfo extends React.Component {
 
   render () {
     return (
-      <Grid.Row>
+      <div className='row container'>
         <div className='candidate-name'>
-          <h1>{this.props.name}</h1>
-          <Popup size='huge'
-            trigger={<Button circular size='huge' color='instagram' icon='instagram' target='_blank' href='http://www.instagram.com'/>}
-            content='View on instagram'
-          />
-          <Popup size='huge'
-            trigger={<Button circular size='huge' color='facebook' icon='facebook f' target='_blank' href='http://www.facebook.com'/>}
-            content='View on facebook'
-          />
-          <Popup size='huge'
-            trigger={<Button circular size='huge' color='twitter' icon='twitter' target='_blank' href='http://www.twitter.com'/>}
-            content='View on twitter'
-          />
+          <h2>{this.props.name}</h2>
+          <Icon name='instagram' size='huge' />
+          <Icon name='facebook' size='huge' />
+          <Icon name='twitter' size='huge' />
         </div>
 
-        <Grid columns={2}>
-          <Grid.Row>
-            <Grid.Column className='img-card' computer={4} tablet={4} mobile={16}>
-              <Card fluid>
-                <Image src={this.props.image_url} />
-                <Card.Content>
-                  <Card.Header>{this.props.name}</Card.Header>
-                  <Card.Meta>#OkeOce</Card.Meta>
-                  <Card.Description>Moto: Pantang maju sebelum mundur.</Card.Description>
-                </Card.Content>
-              </Card>
-            </Grid.Column>
-            <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
-              <Chart container='chart' options={this.state.options} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Grid.Row>
+        <div className='col-lg-3 col-md-3 col-sm-12 col-xs-12 img-card'>
+          <Card fluid>
+            <Image src={this.props.image_url} />
+            <Card.Content>
+              <Card.Header>{this.props.name}</Card.Header>
+              <Card.Meta>#OkeOce</Card.Meta>
+              <Card.Description>Moto: Pantang maju sebelum mundur.</Card.Description>
+            </Card.Content>
+          </Card>
+        </div>
+        <div className='row chart col-lg-9 col-md-9 col-sm-12 col-xs-12'>
+          <Chart container='chart' options={this.state.options} />
+        </div>
+      </div>
     )
   }
 }

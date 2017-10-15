@@ -1,6 +1,6 @@
 import React from 'react'
 import MediaSummary from './MediaSummary'
-import {  Card, Icon, Item, Image, Button, Statistic, Segment } from 'semantic-ui-react'
+import {  Card, Icon, Item, Image, Button, Statistic } from 'semantic-ui-react'
 
 import './mediaverticallist.css'
 
@@ -15,7 +15,9 @@ export default class MediaVerticalList extends React.Component {
     return (
       <div>
         <h3 className='text-centered'>{this.props.title}</h3>
-        {mediaNodes}
+        <Image.Group size='large'>
+          {mediaNodes}
+        </Image.Group>
         <Button fluid size='huge'>3 Media Lainnya</Button>
       </div>
     )
