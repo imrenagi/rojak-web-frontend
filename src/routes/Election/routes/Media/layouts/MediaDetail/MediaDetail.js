@@ -1,5 +1,6 @@
 import React from 'react'
-import { Image, Button } from 'react-bootstrap'
+import { Image } from 'react-bootstrap'
+import { Container, Grid, Segment, Button } from 'semantic-ui-react'
 
 import Chart from 'components/charts/Chart'
 import NewsSection from '../../components/NewsSection'
@@ -151,35 +152,42 @@ export default class MediaDetail extends React.Component {
 
   render () {
     return (
-      <div className='container'>
-        <div className='row'>
-          <div>
-            <div>
-              <Image className='img-logo' src={'http://assets.kompas.com/data/2016/wp/images/logokompascom.png'} responsive />
-            </div>
-            <div>
-              <Button bsSize='large' target='_blank' href='https://facebook.com/'>Kunjungi Website</Button>
-            </div>
-          </div>
-        </div>
-        <div className='row chart'>
-          <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
-            <Chart container='chart1' options={this.state.options.positive_stat} />
-          </div>
-          <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
-            <Chart container='chart2' options={this.state.options.negative_stat} />
-          </div>
-          <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
-            <Chart container='chart3' options={this.state.options.neutral_stat} />
-          </div>
-        </div>
-        <div className='row divider related-tag'>
-          <RelatedTagSection related_tag={this.state.related_tag} />
-        </div>
-        <div className='row'>
-          <NewsSection data={this.state.data} />
-        </div>
-      </div>
+      <Container fluid>
+        <Grid>
+          <Grid.Row columns={1}>
+            <Grid.Row columns={1} textAlign='center'>
+              <Grid.Column >
+                <Image className='img-logo' src={'http://assets.kompas.com/data/2016/wp/images/logokompascom.png'} responsive />
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={1} textAlign='center'>
+                <Grid.Column  >
+                <Button size='huge' basic target='_blank' href='https://facebook.com/'>Kunjungi Website</Button>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid.Row>
+
+          <Grid.Row className='chart' columns={3}>
+            <Grid.Column mobile={16} tablet={16} computer={5}>
+              <Chart container='chart1' options={this.state.options.positive_stat} />
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={16} computer={5}>
+              <Chart container='chart2' options={this.state.options.negative_stat} />
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={16} computer={5}>
+              <Chart container='chart3' options={this.state.options.neutral_stat} />
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row className='divider related-tag'>
+            <RelatedTagSection related_tag={this.state.related_tag} />
+          </Grid.Row>
+
+          <Grid.Row>
+            <NewsSection data={this.state.data} />
+          </Grid.Row>
+        </Grid>
+      </Container>
     )
   }
 }
