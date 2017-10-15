@@ -19,3 +19,12 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+h1 {
+  font-weight: bold;
+}

@@ -18,7 +18,7 @@ export default class MediaStatistic extends React.Component {
           logo_url='http://assets.kompas.com/data/2016/wp/images/logokompascom.png' />
         <MediaStatisticItem
           container='chart2'
-          logo_url='http://assets.kompas.com/data/2016/wp/images/logokompascom.png' />
+          logo_url='https://growpal.co.id/assets_frontend/images/republika.jpg' />
       </Item.Group>
     )
   }
