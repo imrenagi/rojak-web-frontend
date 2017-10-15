@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { Route } from 'react-router-dom'
+import MediaList from '../MediaList'
 
 import './mediasection.css'
 
@@ -8,7 +9,14 @@ export default class MediaSection extends React.Component {
   constructor () {
     super()
     this.state = {
-      data : []
+      data : [{
+        name: "kompascom",
+        logo_url: "http://assets.kompas.com/data/2016/wp/images/logokompascom.png"
+      },
+      {
+        name: "republika",
+        logo_url: "https://growpal.co.id/assets_frontend/images/republika.jpg"
+      }]
     }
   }
 
@@ -38,9 +46,7 @@ export default class MediaSection extends React.Component {
             <div className='row description'>
               <p>Mari kita perhatikan bagaimana sentimen tiap media terhadap pasangan-pasangan dalam pemilu</p>
             </div>
-            <button type='button' className='btn btn-lg btn-primary'
-              onClick={() => { history.push('/election/dkijakarta/media/1') }}>
-            Media Detail Temp Button</button>
+            <MediaList data={this.state.data}/>
             <div className='row load-more'>
               <Button bsStyle='primary' bsSize='large'>Tamplikan Selengkapnya</Button>
             </div>
