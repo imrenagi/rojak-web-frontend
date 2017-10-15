@@ -17,13 +17,35 @@ export default class MediaBreakdown extends React.Component {
   render () {
     return (
       <Grid className='row'>
-        <Grid.Column computer={5} mobile={16} tablet={8}>
+        <Grid.Row columns='equal' only='computer'>
+          <Grid.Column>
+            <MediaVerticalList title='Positif Media' data={this.state.data.positive_medias} />
+          </Grid.Column>
+          <Grid.Column>
+            <MediaVerticalList title='Negatif Media' data={this.state.data.negative_medias} />
+          </Grid.Column>
+          <Grid.Column>
+            <MediaVerticalList title='Netral Media' data={this.state.data.neutral_medias} />
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Column tablet={8} only='tablet'>
           <MediaVerticalList title='Positif Media' data={this.state.data.positive_medias} />
         </Grid.Column>
-        <Grid.Column computer={5} mobile={16} tablet={8}>
+        <Grid.Column tablet={8} only='tablet'>
           <MediaVerticalList title='Negatif Media' data={this.state.data.negative_medias} />
         </Grid.Column>
-        <Grid.Column computer={5} mobile={16} tablet={8}>
+        <Grid.Column tablet={8} only='tablet'>
+          <MediaVerticalList title='Netral Media' data={this.state.data.neutral_medias} />
+        </Grid.Column>
+
+        <Grid.Column mobile={16} only='mobile'>
+          <MediaVerticalList title='Positif Media' data={this.state.data.positive_medias} />
+        </Grid.Column>
+        <Grid.Column mobile={16} only='mobile'>
+          <MediaVerticalList title='Negatif Media' data={this.state.data.negative_medias} />
+        </Grid.Column>
+        <Grid.Column mobile={16} only='mobile'>
           <MediaVerticalList title='Netral Media' data={this.state.data.neutral_medias} />
         </Grid.Column>
       </Grid>
