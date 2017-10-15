@@ -1,22 +1,24 @@
 import React from 'react'
 import MediaSummary from './MediaSummary'
+import {  Card, Icon, Item, Image, Button, Statistic } from 'semantic-ui-react'
+
+import './mediaverticallist.css'
 
 export default class MediaVerticalList extends React.Component {
   render () {
     var mediaNodes = this.props.data.map((media) => {
       return (
-        <MediaSummary />
+        <MediaSummary logo_url={media.logo_url} />
       )
     })
 
     return (
       <div>
-        <div>
-          <h1> Positive Media </h1>
-        </div>
-        <div>
+        <h3 className='text-centered'>{this.props.title}</h3>
+        <Image.Group size='large'>
           {mediaNodes}
-        </div>
+        </Image.Group>
+        <Button fluid size='huge'>3 Media Lainnya</Button>
       </div>
     )
   }

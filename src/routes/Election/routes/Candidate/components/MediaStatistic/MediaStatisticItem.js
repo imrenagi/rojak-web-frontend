@@ -89,7 +89,7 @@ export default class MediaStatistic extends React.Component {
             </Card.Content>
           </Card>
           <div >
-            <Statistic className='text-centered'>
+            <Statistic size='medium' className='text-centered'>
               <Statistic.Value>5,550</Statistic.Value>
               <Statistic.Label>Berita</Statistic.Label>
             </Statistic>

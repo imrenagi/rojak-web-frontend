@@ -1,0 +1,55 @@
+{
+  "positive_medias": [
+    {
+      "id": "kompascom",
+      "name": "kompas",
+      "web_url": "http://www.kompas.com",
+      "logo_url": "http://assets.kompas.com/data/2016/wp/images/logokompascom.png",
+      "statistic": {
+        "total_news": 1000,
+        "total_pos_news": 500,
+        "total_neg_news": 200,
+        "total_neutral_news": 300
+      }
+    },
+    {
+      "id": "kompascom",
+      "name": "kompas",
+      "web_url": "http://www.kompas.com",
+      "logo_url": "https://growpal.co.id/assets_frontend/images/republika.jpg",
+      "statistic": {
+        "total_news": 1000,
+        "total_pos_news": 500,
+        "total_neg_news": 200,
+        "total_neutral_news": 300
+      }
+    },
+    {
+      "id": "kompascom",
+      "name": "kompas",
+      "web_url": "http://www.kompas.com",
+      "logo_url": "https://s3.amazonaws.com/piktochartv2-dev/v2/uploads/d80ec405-87ad-4c55-92b1-ab83de59efe7/1399a980feafcbaa987d7d9604ee0a18609e5e70_original.png",
+      "statistic": {
+        "total_news": 1000,
+        "total_pos_news": 500,
+        "total_neg_news": 200,
+        "total_neutral_news": 300
+      }
+    }
+  ],
+  "negative_medias": [
+    {
+      "id": "detikcom",
+      "name": "detik",
+      "web_url": "http://www.detik.com/",
+      "logo_url": "https://www.detik.com/dnewgeneration/images/logo1.png",
+      "statistic": {
+        "total_news": 1000,
+        "total_pos_news": 500,
+        "total_neg_news": 200,
+        "total_neutral_news": 300
+      }
+    }
+  ],
+  "neutral_medias": []
+}
