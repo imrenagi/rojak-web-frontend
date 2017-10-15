@@ -1,5 +1,6 @@
 import React from 'react'
 import './candidatedetail.css'
+import { Container, Divider } from 'semantic-ui-react'
 
 import MediaBreakdown from '../MediaBreakdown'
 import CandidateInfo from '../CandidateInfo'
@@ -15,17 +16,14 @@ export default class CandidateDetail extends React.Component {
 
   render () {
     return (
-      <div className='container'>
-        <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-          <CandidateInfo
-            name='Anies & Sandi'
-            image_url='http://jakartamajubersama.com/assets/base/img/layout/logos/anies-sandi.jpg' />
-        </div>
-        <div className='row'>
-          <MediaBreakdown />
-        </div>
+      <Container>
+        <CandidateInfo
+          name='Anies & Sandi'
+          image_url='http://jakartamajubersama.com/assets/base/img/layout/logos/anies-sandi.jpg' />
+        <MediaBreakdown />
+        <Divider section/>
         <MediaStatistic />
-      </div>
+      </Container>
     )
   }
 }
