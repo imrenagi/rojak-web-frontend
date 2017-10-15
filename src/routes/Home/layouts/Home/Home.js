@@ -6,6 +6,8 @@ import CandidateSection from '../../components/CandidateSection'
 import MediaSection from '../../components/MediaSection'
 import VideoSection from '../../components/VideoSection'
 
+import './home.css'
+
 export default class Home extends React.Component {
   render () {
     return (

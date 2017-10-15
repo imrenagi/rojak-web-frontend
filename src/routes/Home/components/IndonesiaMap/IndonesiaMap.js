@@ -1,63 +1,91 @@
 import React, { Component } from 'react'
-import { geoMercator, geoPath } from 'd3-geo'
-import { feature } from 'topojson-client'
+import Map from 'components/charts/Map'
+var Highcharts = require('highcharts')
+
+import geoData from './id-all.geo.json'
+
+import './indonesiamap.css'
+
+const data = [
+    ['id-3700', 0],
+    ['id-ac', 1],
+    ['id-ki', 2],
+    ['id-jt', 3],
+    ['id-be', 4],
+    ['id-bt', 5],
+    ['id-kb', 6],
+    ['id-bb', 7],
+    ['id-ba', 8],
+    ['id-ji', 9],
+    ['id-ks', 10],
+    ['id-nt', 11],
+    ['id-se', 12],
+    ['id-kr', 13],
+    ['id-ib', 14],
+    ['id-su', 15],
+    ['id-ri', 16],
+    ['id-sw', 17],
+    ['id-la', 18],
+    ['id-sb', 19],
+    ['id-ma', 20],
+    ['id-nb', 21],
+    ['id-sg', 22],
+    ['id-st', 23],
+    ['id-pa', 24],
+    ['id-jr', 25],
+    ['id-1024', 26],
+    ['id-jk', 27],
+    ['id-go', 28],
+    ['id-yo', 29],
+    ['id-kt', 30],
+    ['id-sl', 31],
+    ['id-sr', 32],
+    ['id-ja', 33]
+];
 
 class IndonesiaMap extends Component {
   constructor () {
     super()
+    console.log(data)
     this.state = {
-      worlddata: [],
-      cities: [],
+      options: {
+        chart: {
+        		height:800
+        },
+        title: {
+            text: ''
+        },
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+        series: [{
+            data: data,
+            mapData: geoData,
+            joinBy: ['hc-key'],
+            showInLegend: false,
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            color: 'grey',
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+      }
     }
+  }
 
-    this.handleCountryClick = this.handleCountryClick.bind(this)
-    this.handleMarkerClick = this.handleMarkerClick.bind(this)
-  }
-  projection () {
-    return geoMercator()
-      .scale(1400)
-      .translate([ -2250, 450 / 2 ])
-  }
-  handleCountryClick (countryIndex) {
-    console.log('Clicked on country: ', this.state.worlddata[countryIndex])
-  }
-  handleMarkerClick (i) {
-    console.log('Marker XXXX: ', this.state.cities[i])
-  }
-  componentDidMount () {
-    fetch('./public/indonesia.json')
-      .then(response => {
-        if (response.status !== 200) {
-          console.log(`There was a problem: ${response.status}`)
-          return
-        }
-        response.json().then(worlddata => {
-          console.log(worlddata)
-          this.setState({
-            worlddata: feature(worlddata, worlddata.objects.idn_provinces).features,
-          })
-        })
-      })
-  }
   render () {
     return (
-      <svg width={1400} height={450} viewBox='0 0 1400 450'>
-        <g className='countries'>
-          {
-            this.state.worlddata.map((d, i) => (
-              <path
-                key={`path-${i}`}
-                d={geoPath().projection(this.projection())(d)}
-                className='country'
-                fill={`rgba(38,50,56,${1 / this.state.worlddata.length * i})`}
-                stroke='#FFFFFF'
-                strokeWidth={0.5}
-                onClick={() => this.handleCountryClick(i)}
-              />
-            ))
-          }
-        </g>
-      </svg>
+      <div className="indonesia-map">
+        <Map container='chart' options={this.state.options} />
+      </div>
     )
   }
 }
