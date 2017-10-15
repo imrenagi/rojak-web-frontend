@@ -50,7 +50,7 @@ class IndonesiaMap extends Component {
     this.state = {
       options: {
         chart: {
-        		height:800
+        		height:600
         },
         title: {
             text: ''
