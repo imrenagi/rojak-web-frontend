@@ -22,7 +22,9 @@ export default class CandidateInfo extends React.Component {
         yAxis: {
           title: {
             text: 'Number of News'
-          }
+          },
+          gridLineWidth: 0,
+          minorGridLineWidth: 0
         },
         legend: {
           layout: 'horizontal',
