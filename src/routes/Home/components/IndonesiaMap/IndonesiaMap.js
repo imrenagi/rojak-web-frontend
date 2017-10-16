@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Map from 'components/charts/Map'
+import  { Modal, Button } from 'semantic-ui-react'
 var Highcharts = require('highcharts')
 
+import CandidateChartModal from '../CandidateChartModal'
 import geoData from './id-all.geo.json'
 
 import './indonesiamap.css'
@@ -48,15 +50,17 @@ class IndonesiaMap extends Component {
     super()
     console.log(data)
     this.state = {
+      open: false,
+      size: 'large',
       options: {
         chart: {
-        		height:600
+        	height:600
         },
         title: {
             text: ''
         },
         mapNavigation: {
-            enabled: true,
+            enabled: false,
             buttonOptions: {
                 verticalAlign: 'bottom'
             }
@@ -66,25 +70,36 @@ class IndonesiaMap extends Component {
             mapData: geoData,
             joinBy: ['hc-key'],
             showInLegend: false,
+            events: {
+              click: (e) => {
+                if (e.point.options.value == 25){
+                  this.show();
+                }
+              }
+            },
             states: {
                 hover: {
-                    color: '#BADA55'
+                    color: 'blue'
                 }
             },
             color: 'grey',
             dataLabels: {
-                enabled: true,
+                enabled: false,
                 format: '{point.name}'
             }
-        }]
+          }]
+        }
       }
     }
-  }
+    show = () => this.setState({ open:true });
+    close = () => this.setState({ open:false });
 
   render () {
+    const { open, size } = this.state
     return (
       <div className="indonesia-map">
         <Map container='chart' options={this.state.options} />
+        <CandidateChartModal size={size} open={open} onClose={this.close}/>
       </div>
     )
   }
