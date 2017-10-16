@@ -67,33 +67,29 @@ export default class MediaItem extends React.Component {
   render () {
     return (
       <Route render={({ history }) => (
-        <Item>
-          <Grid>
-            <Grid.Row columns={2}>
-              <Grid.Column computer={4} tablet={4} mobile={16} className='media-card'>
-                <Card fluid className='text-left'>
-                  <Image src={this.props.logo_url} />
-                  <Card.Content>
-                    <Card.Header>Hashtag Terkait:</Card.Header>
-                    <Card.Description>#pemilu #dki #jabar #jokowi</Card.Description>
-                  </Card.Content>
-                </Card>
-                <div >
-                  <Statistic size='medium' className='text-centered'>
-                    <Statistic.Value>5,550</Statistic.Value>
-                    <Statistic.Label>Berita</Statistic.Label>
-                  </Statistic>
-                </div>
-                <Button fluid size='huge'
-                  onClick={() => { history.push('/election/dkijakarta/media/1') }}>
-                Lihat Detail</Button>
-              </Grid.Column>
-              <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
-                <Chart container={this.props.container} options={this.state.options} />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Item>
+        <Grid.Row columns={2}>
+          <Grid.Column computer={4} tablet={4} mobile={16} className='media-card'>
+            <Card fluid className='text-left'>
+              <Image src={this.props.logo_url} />
+              <Card.Content>
+                <Card.Header>Hashtag Terkait:</Card.Header>
+                <Card.Description>#pemilu #dki #jabar #jokowi</Card.Description>
+              </Card.Content>
+            </Card>
+            <div >
+              <Statistic size='medium' className='text-centered'>
+                <Statistic.Value>5,550</Statistic.Value>
+                <Statistic.Label>Berita</Statistic.Label>
+              </Statistic>
+            </div>
+            <Button fluid size='huge'
+              onClick={() => { history.push('/election/dkijakarta/media/1') }}>
+            Lihat Detail</Button>
+          </Grid.Column>
+          <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
+            <Chart container={this.props.container} options={this.state.options} />
+          </Grid.Column>
+        </Grid.Row>
       )} />
     )
   }

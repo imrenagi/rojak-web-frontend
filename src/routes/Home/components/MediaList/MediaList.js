@@ -1,5 +1,5 @@
 import React from 'react'
-import {Item } from 'semantic-ui-react'
+import { Item, Grid } from 'semantic-ui-react'
 import MediaItem from './MediaItem'
 
 export default class MediaList extends React.Component {
@@ -16,9 +16,9 @@ export default class MediaList extends React.Component {
 
     return (
       <div>
-        <Item.Group divided>
+        <Grid divided='vertically'>
           {mediaNodes}
-        </Item.Group>
+        </Grid>
       </div>
     )
   }
