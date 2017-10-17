@@ -1,8 +1,6 @@
 .container-media {
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 10px;
   text-align: left;
+  margin-left: 10px;
 }
 
 .news-title {
@@ -28,4 +26,12 @@
 
 .news-sentiment {
   font-style: italic;
+}
+
+.article-list {
+  text-align: left;
+}
+
+.ui.items>.item .extra {
+  color: rgba(0,0,0,1);
 }
