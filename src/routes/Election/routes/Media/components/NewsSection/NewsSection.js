@@ -1,6 +1,6 @@
 import React from 'react'
 import News from '../News'
-import {Grid} from 'semantic-ui-react'
+import { Grid, Item } from 'semantic-ui-react'
 
 export default class NewsSection extends React.Component {
   render () {
@@ -17,9 +17,9 @@ export default class NewsSection extends React.Component {
     })
 
     return (
-      <Grid.Row>
+      <Item.Group>
         {newsItem}
-      </Grid.Row>
+      </Item.Group>
     )
   }
 }

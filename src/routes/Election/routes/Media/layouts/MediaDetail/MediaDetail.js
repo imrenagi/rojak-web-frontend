@@ -152,7 +152,7 @@ export default class MediaDetail extends React.Component {
 
   render () {
     return (
-      <Container fluid>
+      <Container>
         <Grid>
           <Grid.Row columns={1}>
             <Grid.Row columns={1} textAlign='center'>
