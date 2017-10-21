@@ -10,12 +10,12 @@ export default class MediaSection extends React.Component {
     super()
     this.state = {
       data : [{
-        name: "kompascom",
-        logo_url: "http://assets.kompas.com/data/2016/wp/images/logokompascom.png"
+        name: 'kompascom',
+        logo_url: 'http://assets.kompas.com/data/2016/wp/images/logokompascom.png'
       },
       {
-        name: "republika",
-        logo_url: "https://growpal.co.id/assets_frontend/images/republika.jpg"
+        name: 'republika',
+        logo_url: 'https://growpal.co.id/assets_frontend/images/republika.jpg'
       }]
     }
   }
@@ -46,7 +46,7 @@ export default class MediaSection extends React.Component {
             <div className='row description'>
               <p>Mari kita perhatikan bagaimana sentimen tiap media terhadap pasangan-pasangan dalam pemilu</p>
             </div>
-            <MediaList data={this.state.data}/>
+            <MediaList data={this.state.data} />
             <div className='row load-more'>
               <Button bsStyle='primary' bsSize='large'>Tamplikan Selengkapnya</Button>
             </div>

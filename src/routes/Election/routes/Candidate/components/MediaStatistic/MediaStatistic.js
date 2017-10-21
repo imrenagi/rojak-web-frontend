@@ -1,7 +1,5 @@
 import React from 'react'
 import { Item } from 'semantic-ui-react'
-
-import Chart from 'components/charts/Chart'
 import MediaStatisticItem from './MediaStatisticItem'
 
 export default class MediaStatistic extends React.Component {

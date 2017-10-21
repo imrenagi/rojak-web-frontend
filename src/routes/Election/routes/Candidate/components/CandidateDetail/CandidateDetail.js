@@ -21,7 +21,7 @@ export default class CandidateDetail extends React.Component {
           name='Anies & Sandi'
           image_url='http://jakartamajubersama.com/assets/base/img/layout/logos/anies-sandi.jpg' />
         <MediaBreakdown />
-        <Divider section/>
+        <Divider section />
         <MediaStatistic />
       </Container>
     )

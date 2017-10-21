@@ -4,7 +4,7 @@ import { Grid } from 'semantic-ui-react'
 
 import './MediaBreakdown.css'
 
-import testData from './data.json';
+import testData from './data.json'
 
 export default class MediaBreakdown extends React.Component {
   constructor () {

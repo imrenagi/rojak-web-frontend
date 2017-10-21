@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import MediaItem from './MediaItem'
 
 export default class MediaList extends React.Component {

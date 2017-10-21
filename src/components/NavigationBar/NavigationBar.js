@@ -12,11 +12,11 @@ export default class NavigationBar extends React.Component {
         </Menu.Item>
 
         <Menu.Menu position='right'>
-          <Menu.Item name='about-us'  size='medium'>
+          <Menu.Item name='about-us' size='medium'>
             About Us
           </Menu.Item>
         </Menu.Menu>
-     </Menu>
+      </Menu>
     )
   }
 }

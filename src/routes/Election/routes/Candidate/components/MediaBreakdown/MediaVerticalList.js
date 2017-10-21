@@ -1,6 +1,6 @@
 import React from 'react'
 import MediaSummary from './MediaSummary'
-import {  Card, Icon, Item, Image, Button, Statistic, Segment } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 import './mediaverticallist.css'
 

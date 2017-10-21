@@ -1,64 +1,61 @@
 import React from 'react'
 import Chart from 'components/charts/Chart'
 import { Route } from 'react-router-dom'
-import { Card, Icon, Item, Image, Button, Statistic } from 'semantic-ui-react'
-import { Grid } from 'semantic-ui-react'
-
-var Highcharts = require('highcharts')
+import { Card, Grid, Image, Button, Statistic } from 'semantic-ui-react'
 
 import './mediaitem.css'
 
 export default class MediaItem extends React.Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       options: {
         chart: {
-            type: 'bar'
+          type: 'bar'
         },
         title: {
-            text: ''
+          text: ''
         },
         xAxis: {
-            categories: ['Anies-Sandi', 'Jokowi-JK', 'Agus-Silvy'],
-            labels: {
-              style: {
-                fontSize:'17px'
-              }
+          categories: ['Anies-Sandi', 'Jokowi-JK', 'Agus-Silvy'],
+          labels: {
+            style: {
+              fontSize:'17px'
             }
+          }
         },
         yAxis: {
-            min: 0,
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            title: {
-                text: 'Total fruit consumption'
-            },
-            labels: {
-               enabled: true
-           },
+          min: 0,
+          gridLineWidth: 0,
+          minorGridLineWidth: 0,
+          title: {
+            text: 'Total fruit consumption'
+          },
+          labels: {
+            enabled: true
+          },
 
         },
         legend: {
-            reversed: true
+          reversed: true
         },
         plotOptions: {
-            series: {
-                stacking: 'normal'
-            }
+          series: {
+            stacking: 'normal'
+          }
         },
         series: [{
-            name: 'Positif',
-            data: [400, 20, 14],
-            color: 'green',
+          name: 'Positif',
+          data: [400, 20, 14],
+          color: 'green',
         }, {
-            name: 'Negatif',
-            data: [150, 43, 0],
-            color: 'red'
+          name: 'Negatif',
+          data: [150, 43, 0],
+          color: 'red'
         }, {
-            name: 'Netral',
-            data: [139, 100, 23],
-            color: 'blue'
+          name: 'Netral',
+          data: [139, 100, 23],
+          color: 'blue'
         }]
       }
     }
@@ -84,7 +81,7 @@ export default class MediaItem extends React.Component {
             </div>
             <Button fluid size='huge'
               onClick={() => { history.push('/election/dkijakarta/media/1') }}>
-            Lihat Detail</Button>
+              Lihat Detail</Button>
           </Grid.Column>
           <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
             <Chart container={this.props.container} options={this.state.options} />

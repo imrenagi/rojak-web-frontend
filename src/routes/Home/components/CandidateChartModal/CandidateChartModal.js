@@ -3,13 +3,9 @@ import { Modal } from 'semantic-ui-react'
 
 const style = {
   textAlign:'center'
-};
+}
 
 export default class CandidateChartModal extends React.Component {
-  constructor () {
-    super()
-  }
-
   render () {
     return (
       <div>

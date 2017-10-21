@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
-import { Container, Grid, Segment, Button } from 'semantic-ui-react'
+import { Container, Grid, Button } from 'semantic-ui-react'
 
 import Chart from 'components/charts/Chart'
 import NewsSection from '../../components/NewsSection'
@@ -161,7 +161,7 @@ export default class MediaDetail extends React.Component {
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={1} textAlign='center'>
-                <Grid.Column  >
+              <Grid.Column>
                 <Button size='huge' basic target='_blank' href='https://facebook.com/'>Kunjungi Website</Button>
               </Grid.Column>
             </Grid.Row>

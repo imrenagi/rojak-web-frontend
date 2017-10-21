@@ -1,6 +1,6 @@
 import React from 'react'
 import News from '../News'
-import { Grid, Item } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 
 export default class NewsSection extends React.Component {
   render () {

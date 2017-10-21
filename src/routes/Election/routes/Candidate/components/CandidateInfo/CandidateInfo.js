@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image, Popup, Button, Grid } from 'semantic-ui-react'
+import { Card, Image, Popup, Button, Grid } from 'semantic-ui-react'
 
 import Chart from 'components/charts/Chart'
 
@@ -64,15 +64,15 @@ export default class CandidateInfo extends React.Component {
         <div className='candidate-name'>
           <h1>{this.props.name}</h1>
           <Popup size='huge'
-            trigger={<Button circular size='huge' color='instagram' icon='instagram' target='_blank' href='http://www.instagram.com'/>}
+            trigger={<Button circular size='huge' color='instagram' icon='instagram' target='_blank' href='http://www.instagram.com' />}
             content='View on instagram'
           />
           <Popup size='huge'
-            trigger={<Button circular size='huge' color='facebook' icon='facebook f' target='_blank' href='http://www.facebook.com'/>}
+            trigger={<Button circular size='huge' color='facebook' icon='facebook f' target='_blank' href='http://www.facebook.com' />}
             content='View on facebook'
           />
           <Popup size='huge'
-            trigger={<Button circular size='huge' color='twitter' icon='twitter' target='_blank' href='http://www.twitter.com'/>}
+            trigger={<Button circular size='huge' color='twitter' icon='twitter' target='_blank' href='http://www.twitter.com' />}
             content='View on twitter'
           />
         </div>

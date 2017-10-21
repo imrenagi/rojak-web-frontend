@@ -1,10 +1,10 @@
+import './mediastatisticitem.css'
+
 import React from 'react'
-import {  Card, Icon, Item, Image, Button, Statistic } from 'semantic-ui-react'
+import { Card, Item, Image, Button, Statistic } from 'semantic-ui-react'
 import Chart from 'components/charts/Chart'
 
 var Highcharts = require('highcharts')
-
-import './mediastatisticitem.css'
 
 export default class MediaStatistic extends React.Component {
   constructor () {
@@ -12,66 +12,66 @@ export default class MediaStatistic extends React.Component {
     this.state = {
       options : {
         chart: {
-            type: 'bar'
+          type: 'bar'
         },
         title: {
-            text: ''
+          text: ''
         },
         xAxis: {
-            type: 'category'
+          type: 'category'
         },
         yAxis: {
-    	    labels: {
-                formatter:function() {
-                    var pcnt = (this.value / 150) * 100;
-                    return Highcharts.numberFormat(pcnt,0,',') + '%';
-                }
-            },
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
-            title: {
-                text: 'Total berita'
+          labels: {
+            formatter: function () {
+              var pcnt = (this.value / 150) * 100
+              return Highcharts.numberFormat(pcnt, 0, ',') + '%'
             }
+          },
+          gridLineWidth: 0,
+          minorGridLineWidth: 0,
+          title: {
+            text: 'Total berita'
+          }
         },
         legend: {
-        		layout: 'vertical',
-            enabled: false
+          layout: 'vertical',
+          enabled: false
         },
         plotOptions: {
-            series: {
-                borderWidth: 0,
-                pointPadding: 0,
-                groupPadding: 0.2,
+          series: {
+            borderWidth: 0,
+            pointPadding: 0,
+            groupPadding: 0.2,
 
-                dataLabels:{
-                    enabled:true,
-                    formatter:function() {
-                        var pcnt = (this.y / 150) * 100;
-                        return Highcharts.numberFormat(pcnt) + '%';
-                    }
-                }
+            dataLabels:{
+              enabled:true,
+              formatter: function () {
+                var pcnt = (this.y / 150) * 100
+                return Highcharts.numberFormat(pcnt) + '%'
+              }
             }
+          }
         },
         tooltip: {
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> berita<br/>'
+          pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> berita<br/>'
         },
         series: [{
-            colorByPoint: true,
-            data: [{
-            		color: 'green',
-                name: 'Positif',
-                y: 20
-            },
-            {
-                color: 'red',
-                name: 'Negatif',
-                y: 40
-            },
-            {
-            		color: 'blue',
-                name: 'Neutral',
-                y: 90
-            }]
+          colorByPoint: true,
+          data: [{
+            color: 'green',
+            name: 'Positif',
+            y: 20
+          },
+          {
+            color: 'red',
+            name: 'Negatif',
+            y: 40
+          },
+          {
+            color: 'blue',
+            name: 'Neutral',
+            y: 90
+          }]
         }]
       }
     }
