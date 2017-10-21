@@ -44,7 +44,8 @@ export default class MediaSection extends React.Component {
               <h1>Media</h1>
             </div>
             <div className='row description'>
-              <p>Mari kita perhatikan bagaimana sentimen tiap media terhadap pasangan-pasangan dalam pemilu</p>
+              <p>Rangkuman Analisis Sentiment Berita dari seluruh media yang turut serta memberitakan
+              Pilkada Jawa Barat 2018</p>
             </div>
             <MediaList data={this.state.data} />
             <div className='row load-more'>

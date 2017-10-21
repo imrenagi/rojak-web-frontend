@@ -1,18 +1,20 @@
 import React from 'react'
-
-import CandidateThumbnail from '../CandidateThumbnail'
+import { Grid } from 'semantic-ui-react'
+import CandidateItem from './CandidateItem'
 
 export default class CandidateList extends React.Component {
   render () {
     var candidateNodes = this.props.data.map((candidate) => {
       return (
-        <CandidateThumbnail name={candidate.name}
-          img={candidate.image_url}
-          counter={candidate.statistic_summary} />)
+        <Grid.Column computer={5} tablet={5} mobile={16}>
+          <CandidateItem />
+        </Grid.Column>
+      )
     })
 
-    return (<div className='row custom-thumbnail'>
-      {candidateNodes}
-    </div>)
+    return (
+      <Grid columns={3} divided>
+        {candidateNodes}
+      </Grid>)
   }
 }
