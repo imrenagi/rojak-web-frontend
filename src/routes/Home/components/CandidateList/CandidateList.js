@@ -7,7 +7,7 @@ export default class CandidateList extends React.Component {
     var candidateNodes = this.props.data.map((candidate) => {
       return (
         <Grid.Column computer={5} tablet={5} mobile={16}>
-          <CandidateItem />
+          <CandidateItem candidate={candidate} />
         </Grid.Column>
       )
     })

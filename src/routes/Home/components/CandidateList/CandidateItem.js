@@ -5,10 +5,10 @@ export default class CandidateItem extends React.Component {
   render () {
     return (
       <Card>
-        <Image src='https://react.semantic-ui.com/assets/images/avatar/large/matthew.png' />
+        <Image src={this.props.candidate.image_url} />
         <Card.Content>
           <Card.Header>
-            Matthew
+            {this.props.candidate.name}
           </Card.Header>
           <Card.Meta>
             <span className='date'>
@@ -16,13 +16,13 @@ export default class CandidateItem extends React.Component {
             </span>
           </Card.Meta>
           <Card.Description>
-            Matthew is a musician living in Nashville.
+            {this.props.candidate.id}
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <a>
             <Icon name='user' />
-            22 Friends
+            {this.props.candidate.statistic.total_news} Berita
           </a>
         </Card.Content>
       </Card>

@@ -6,76 +6,23 @@ import { Card, Grid, Image, Button, Statistic } from 'semantic-ui-react'
 import './mediaitem.css'
 
 export default class MediaItem extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      options: {
-        chart: {
-          type: 'bar'
-        },
-        title: {
-          text: ''
-        },
-        xAxis: {
-          categories: ['Anies-Sandi', 'Jokowi-JK', 'Agus-Silvy'],
-          labels: {
-            style: {
-              fontSize:'17px'
-            }
-          }
-        },
-        yAxis: {
-          min: 0,
-          gridLineWidth: 0,
-          minorGridLineWidth: 0,
-          title: {
-            text: 'Total fruit consumption'
-          },
-          labels: {
-            enabled: true
-          },
-
-        },
-        legend: {
-          reversed: true
-        },
-        plotOptions: {
-          series: {
-            stacking: 'normal'
-          }
-        },
-        series: [{
-          name: 'Positif',
-          data: [400, 20, 14],
-          color: 'green',
-        }, {
-          name: 'Negatif',
-          data: [150, 43, 0],
-          color: 'red'
-        }, {
-          name: 'Netral',
-          data: [139, 100, 23],
-          color: 'blue'
-        }]
-      }
-    }
-  }
-
   render () {
+    const relatedHashtag = this.props.media.related_tag.slice(0, 4).join(', ')
+
     return (
       <Route render={({ history }) => (
         <Grid.Row columns={2}>
           <Grid.Column computer={4} tablet={4} mobile={16} className='media-card'>
             <Card fluid className='text-left'>
-              <Image src={this.props.logo_url} />
+              <Image src={this.props.media.logo_url} />
               <Card.Content>
                 <Card.Header>Hashtag Terkait:</Card.Header>
-                <Card.Description>#pemilu #dki #jabar #jokowi</Card.Description>
+                <Card.Description>{relatedHashtag}</Card.Description>
               </Card.Content>
             </Card>
             <div >
               <Statistic size='medium' className='text-centered'>
-                <Statistic.Value>5,550</Statistic.Value>
+                <Statistic.Value>{this.props.media.total_news}</Statistic.Value>
                 <Statistic.Label>Berita</Statistic.Label>
               </Statistic>
             </div>
@@ -84,7 +31,7 @@ export default class MediaItem extends React.Component {
               Lihat Detail</Button>
           </Grid.Column>
           <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
-            <Chart container={this.props.container} options={this.state.options} />
+            <Chart container={this.props.container} options={this.props.options} />
           </Grid.Column>
         </Grid.Row>
       )} />

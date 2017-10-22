@@ -45,7 +45,6 @@ const data = [
 class IndonesiaMap extends Component {
   constructor () {
     super()
-    console.log(data)
     this.state = {
       open: false,
       size: 'large',
@@ -69,6 +68,8 @@ class IndonesiaMap extends Component {
           showInLegend: false,
           events: {
             click: (e) => {
+              this.props.action(e.point['hc-key'])
+              // console.log(e.point['hc-key'])
               if (e.point.options.value === 25) {
                 this.show()
               }
