@@ -15,7 +15,7 @@ class CandidateSection extends React.Component {
               <h1>Kandidat</h1>
             </div>
             <div className='row description'>
-              <p>Kandidate Pemilu {this.props.electionId}</p>
+              <p>Kandidat Pemilu {this.props.electionId}</p>
             </div>
             <CandidateList data={this.props.candidates} />
             <Button fluid size='huge'
