@@ -2,11 +2,10 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { Button, Container, Header } from 'semantic-ui-react'
 import CandidateList from '../CandidateList'
-import PropTypes from 'prop-types'
 
 import './candidatesection.css'
 
-class CandidateSection extends React.Component {
+export default class CandidateSection extends React.Component {
   render () {
     return (
       <Route render={({ history }) => (
@@ -22,10 +21,3 @@ class CandidateSection extends React.Component {
     )
   }
 }
-
-CandidateSection.propTypes = {
-  electionId: PropTypes.string.isRequired,
-  candidates: PropTypes.array.isRequired
-}
-
-export default CandidateSection
