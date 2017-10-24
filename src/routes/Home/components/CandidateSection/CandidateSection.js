@@ -1,11 +1,27 @@
 import React from 'react'
 import './candidatesection.css'
 import { Route } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Button, Container } from 'semantic-ui-react'
 import CandidateList from '../CandidateList'
-import PropTypes from 'prop-types'
 
-class CandidateSection extends React.Component {
+export default class CandidateSection extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      data : {
+        candidate : [1, 2, 3]
+      }
+    }
+  }
+
+  componentDidMount () {
+    this.loadAllCandidate()
+  }
+
+  loadAllCandidate () {
+
+  }
+
   render () {
     return (
       <Route render={({ history }) => (
@@ -15,22 +31,19 @@ class CandidateSection extends React.Component {
               <h1>Kandidat</h1>
             </div>
             <div className='row description'>
-              <p>Kandidat Pemilu {this.props.electionId}</p>
+              <p>Pasangan Kandidat di Pilkada Jawa Barat 2018</p>
             </div>
-            <CandidateList data={this.props.candidates} />
-            <Button fluid size='huge'
-              onClick={() => { history.push('/election/dkijakarta/candidate/1') }}>
-            Temp Candidate Detail Page</Button>
+            <Container>
+              <CandidateList data={this.state.data.candidate} />
+              <Button fluid size='huge'
+                onClick={() => { history.push('/election/dkijakarta/candidate/1') }}>
+                Temp Candidate Detail Page
+              </Button>
+            </Container>
           </div>
         </div>
       )} />
+
     )
   }
 }
-
-CandidateSection.propTypes = {
-  electionId: PropTypes.string.isRequired,
-  candidates: PropTypes.array.isRequired
-}
-
-export default CandidateSection
