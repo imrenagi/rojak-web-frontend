@@ -4,35 +4,6 @@ import { Container, Button, Header } from 'semantic-ui-react'
 import MediaList from '../MediaList'
 
 export default class MediaSection extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      data : [{
-        name: 'kompascom',
-        logo_url: 'http://assets.kompas.com/data/2016/wp/images/logokompascom.png'
-      },
-      {
-        name: 'republika',
-        logo_url: 'https://growpal.co.id/assets_frontend/images/republika.jpg'
-      }]
-    }
-  }
-
-  componentDidMount () {
-    // this.loadAllMedia();
-  }
-
-  loadAllMedia () {
-    // var self = this
-    // TODO change the hardcoded part
-    // client.loadAllMedia("dkijakarta")
-    //   .then(function(res) {
-    //     self.setState({data : res.data.medias});
-    //   }).catch(function(err) {
-    //     // console.log(err);
-    //   });
-  }
-
   render () {
     return (
       <Route render={({ history }) => (
