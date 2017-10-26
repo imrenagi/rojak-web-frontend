@@ -50,6 +50,7 @@
     "path": "0.12.7",
     "react-addons-test-utils": "^15.4.2",
     "react-test-renderer": "^15.5.3",
+    "redux-devtools-extension": "^2.13.2",
     "serve-favicon": "2.4.2",
     "style-loader": "^0.16.1",
     "topojson-client": "3.0.0",
