@@ -1,9 +1,10 @@
-var React = require('react')
-var Highcharts = require('highcharts')
+import React, { Component } from 'react'
+import Highcharts from 'highcharts/highmaps'
 
-module.exports = React.createClass({
+export default class Chart extends Component {
+
   // When the DOM is ready, create the chart.
-  componentDidMount: function () {
+  componentDidMount() {
     // Extend Highcharts with modules
     if (this.props.modules) {
       this.props.modules.forEach(function (module) {
@@ -15,13 +16,16 @@ module.exports = React.createClass({
       this.props.container,
       this.props.options
     )
-  },
-  // Destroy chart before unmount.
-  componentWillUnmount: function () {
-    this.chart.destroy()
-  },
-  // Create the div which the chart will be rendered to.
-  render: function () {
-    return React.createElement('div', { id: this.props.container })
   }
-})
+
+  // Destroy chart before unmount.
+  componentWillUnmount() {
+    this.chart.destroy()
+  }
+
+  render() {
+    return (
+      <div id={this.props.container} />
+    )
+  }
+}
