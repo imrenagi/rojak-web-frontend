@@ -1,6 +1,4 @@
-'use strict'
-
-var axios = require('axios')
+import axios from 'axios'
 
 class APIClient {
   constructor () {
@@ -32,4 +30,6 @@ class APIClient {
   }
 }
 
-module.exports = APIClient
+const apiClient = new APIClient();
+
+export default apiClient

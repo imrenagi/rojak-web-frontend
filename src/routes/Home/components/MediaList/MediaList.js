@@ -60,7 +60,7 @@ export default class MediaList extends React.Component {
   }
 
   render () {
-    var mediaNodes = this.props.data.map((media, idx) => {
+    const mediaNodes = this.props.data.map((media, index) => {
       const candidates = media.candidates
         .map((candidate) => {
           return candidate.detail.short_name
@@ -81,7 +81,7 @@ export default class MediaList extends React.Component {
         negativeNews, neutralNews)
       return (
         <MediaItem
-          key={idx}
+          key={`${index}-${media.name}`}
           media={media}
           container={media.name}
           options={chartOptions}

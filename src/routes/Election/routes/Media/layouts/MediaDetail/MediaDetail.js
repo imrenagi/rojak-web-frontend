@@ -5,11 +5,9 @@ import { Container, Grid, Button } from 'semantic-ui-react'
 import Chart from 'components/charts/Chart'
 import NewsSection from '../../components/NewsSection'
 import RelatedTagSection from '../../components/RelatedTagSection'
+import client from '../../../../../../services/api'
 
 import './MediaDetail.css'
-
-var APIClient = require('services/api.js')
-var client = new APIClient()
 
 export default class MediaDetail extends React.Component {
   constructor () {

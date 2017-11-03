@@ -1,7 +1,6 @@
-var APIClient = require('../../../services/api')
-var client = new APIClient()
+import client from '../../../services/api'
 
-function loadHomeData (electionId) {
+const loadHomeData = (electionId) => {
   return Promise.all([
     client.loadAllCandidate(electionId),
     client.loadAllMedia(electionId)

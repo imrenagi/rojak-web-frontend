@@ -4,9 +4,9 @@ import CandidateItem from './CandidateItem'
 
 export default class CandidateList extends React.Component {
   render () {
-    var candidateNodes = this.props.data.map((candidate, idx) => {
+    const candidateNodes = this.props.data.map((candidate, index) => {
       return (
-        <Grid.Column key={idx} computer={5} tablet={5} mobile={16}>
+        <Grid.Column key={`${index}-${candidate.name}`} computer={5} tablet={5} mobile={16}>
           <CandidateItem candidate={candidate} />
         </Grid.Column>
       )
