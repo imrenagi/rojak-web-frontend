@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container, Embed } from 'semantic-ui-react'
 
 import './videosection.css'
 
@@ -12,16 +13,13 @@ export default class VideoSection extends React.Component {
         <div className='row description'>
           <p>Watch this video to understand more about Rojak</p>
         </div>
-        <div className='video-thumbnail'>
-          <div className='container-video'>
-            <div className='embed-responsive embed-responsive-16by9'>
-              <iframe
-                className='embed-responsive-item'
-                src='https://www.youtube.com/embed/3tmd-ClpJxA'
-              />
-            </div>
-          </div>
-        </div>
+        <Container>
+          <Embed
+            id='3tmd-ClpJxA'
+            placeholder='https://img.youtube.com/vi/3tmd-ClpJxA/maxresdefault.jpg'
+            source='youtube'
+          />
+        </Container>
       </div>
     )
   }

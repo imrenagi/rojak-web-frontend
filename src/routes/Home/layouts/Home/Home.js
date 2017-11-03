@@ -23,19 +23,25 @@ class Home extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const { electionId, actions, loading, candidates, media } = this.props
     return (
       <Segment>
-        <Dimmer active={loading}>
-          <Loader size='huge' content='Loading' />
-        </Dimmer>
-        <div className='container-fluid'>
-          <IndonesiaMap action={actions.selectElection} />
-          <CandidateSection electionId={electionId} candidates={candidates} />
-          <MediaSection electionId={electionId} media={media} />
-          <VideoSection />
-        </div>
+        {
+            loading
+            ? (
+                <Dimmer active fluid style={{ minHeight: '500px' }}>
+                  <Loader active size='huge' content='Loading' />
+                </Dimmer>
+            )
+            : (
+                <div className='container-fluid'>
+                  <IndonesiaMap action={actions.selectElection} />
+                  <CandidateSection electionId={electionId} candidates={candidates} />
+                  <MediaSection electionId={electionId} media={media} />
+                  <VideoSection />
+                </div>
+            )
+        }
       </Segment>
     )
   }

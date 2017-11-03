@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class APIClient {
   constructor () {
-    this.baseUrl = 'http://private-anon-b8d16dd661-rojak.apiary-mock.com'
+    this.baseUrl = 'http://private-052434-rojak.apiary-mock.com'
   }
 
   loadAllCandidate (electionId) {

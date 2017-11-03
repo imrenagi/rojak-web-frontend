@@ -9,7 +9,7 @@ export default class CandidateChartModal extends React.Component {
   render () {
     return (
       <div>
-        <Modal size={this.props} open={this.props.open} onClose={this.props.onClose}>
+        <Modal size={this.props.size} open={this.props.open} onClose={this.props.onClose}>
           <Modal.Header style={style}>
             <h1>KANDIDAT</h1>
           </Modal.Header>
