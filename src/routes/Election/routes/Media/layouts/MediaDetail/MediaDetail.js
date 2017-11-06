@@ -6,12 +6,14 @@ import Chart from 'components/charts/Chart'
 import NewsSection from '../../components/NewsSection'
 import RelatedTagSection from '../../components/RelatedTagSection'
 
+import PropTypes from 'prop-types'
+
 import './MediaDetail.css'
 
 var APIClient = require('services/api.js')
 var client = new APIClient()
 
-export default class MediaDetail extends React.Component {
+class MediaDetail extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -135,7 +137,11 @@ export default class MediaDetail extends React.Component {
   }
 
   componentDidMount () {
+    console.log(this.props)
     this.loadAllNews('dkijakarta', 'kompascom')
+    const electionId = this.props.match.params.electionId
+    const mediaId = this.props.match.params.mediaId
+    this.props.actions.loadMediaData(electionId, mediaId)
   }
 
   loadAllNews (electionId, mediaId) {
@@ -191,3 +197,9 @@ export default class MediaDetail extends React.Component {
     )
   }
 }
+
+MediaDetail.propTypes = {
+  actions: PropTypes.object.isRequired
+}
+
+export default MediaDetail

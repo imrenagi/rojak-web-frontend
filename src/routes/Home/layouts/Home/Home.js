@@ -19,6 +19,7 @@ class Home extends React.Component {
   }
 
   componentDidMount () {
+    console.log(this.props)
     this.props.actions.selectElection()
   }
 
@@ -27,19 +28,19 @@ class Home extends React.Component {
     return (
       <Segment>
         {
-            loading
+          loading
             ? (
-                <Dimmer active fluid style={{ minHeight: '500px' }}>
-                  <Loader active size='huge' content='Loading' />
-                </Dimmer>
+              <Dimmer active fluid style={{ minHeight: '500px' }}>
+                <Loader active size='huge' content='Loading' />
+              </Dimmer>
             )
             : (
-                <div className='container-fluid'>
-                  <IndonesiaMap action={actions.selectElection} />
-                  <CandidateSection electionId={electionId} candidates={candidates} />
-                  <MediaSection electionId={electionId} media={media} />
-                  <VideoSection />
-                </div>
+              <div className='container-fluid'>
+                <IndonesiaMap action={actions.selectElection} />
+                <CandidateSection electionId={electionId} candidates={candidates} />
+                <MediaSection electionId={electionId} media={media} />
+                <VideoSection />
+              </div>
             )
         }
       </Segment>

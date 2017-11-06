@@ -42,7 +42,7 @@ class APIClient {
   loadMediaArticles (electionId, mediaId) {
     return axios({
       method: 'get',
-      url: this.baseUrl + 'analytics/medias/' + mediaId + '/elections/' + electionId + '/news?page=1&limit=10',
+      url: this.baseUrl + '/analytics/medias/' + mediaId + '/elections/' + electionId + '/news?page=1&limit=10',
       responseType: 'json'
     })
   }
@@ -50,7 +50,7 @@ class APIClient {
   loadMediaStatisticForAllCandidate (electionId, mediaId) {
     return axios({
       method: 'get',
-      url: this.baseUrl + 'analytics/elections/' + electionId + '/medias/' + mediaId + '/statistics',
+      url: this.baseUrl + '/analytics/elections/' + electionId + '/medias/' + mediaId + '/statistics',
       responseType: 'json'
     })
   }
