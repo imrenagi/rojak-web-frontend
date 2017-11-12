@@ -1,17 +1,14 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
-import { Container, Grid, Button } from 'semantic-ui-react'
+import { Container, Grid, Button, Dimmer, Loader } from 'semantic-ui-react'
 
-import Chart from 'components/charts/Chart'
 import NewsSection from '../../components/NewsSection'
 import RelatedTagSection from '../../components/RelatedTagSection'
+import SentimentChart from '../../components/SentimentChart'
 
 import PropTypes from 'prop-types'
 
 import './MediaDetail.css'
-
-var APIClient = require('services/api.js')
-var client = new APIClient()
 
 class MediaDetail extends React.Component {
   constructor () {
@@ -137,69 +134,61 @@ class MediaDetail extends React.Component {
   }
 
   componentDidMount () {
-    console.log(this.props)
-    this.loadAllNews('dkijakarta', 'kompascom')
     const electionId = this.props.match.params.electionId
     const mediaId = this.props.match.params.mediaId
     this.props.actions.loadMediaData(electionId, mediaId)
   }
 
-  loadAllNews (electionId, mediaId) {
-    var self = this
-    // TODO change the hardcoded part
-    client.loadAllNewsOfMedia(electionId, mediaId)
-      .then(function (res) {
-        console.log(res)
-        self.setState({ data : res.data.news })
-      }).catch(function (err) {
-        console.log(err)
-      })
-  }
-
   render () {
+    const { metadata, articles, statistics, loading } = this.props
+
     return (
       <Container>
-        <Grid>
-          <Grid.Row columns={1}>
-            <Grid.Row columns={1} textAlign='center'>
-              <Grid.Column >
-                <Image className='img-logo' src={'http://assets.kompas.com/data/2016/wp/images/logokompascom.png'} responsive />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={1} textAlign='center'>
-              <Grid.Column>
-                <Button size='huge' basic target='_blank' href='https://facebook.com/'>Kunjungi Website</Button>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid.Row>
+        {
+          loading
+            ? (
+              <Dimmer active fluid style={{ minHeight: '500px' }}>
+                <Loader active size='huge' content='Loading' />
+              </Dimmer>
+            )
+            : (
+              <Grid>
+                <Grid.Row columns={1}>
+                  <Grid.Row columns={1} textAlign='center'>
+                    <Grid.Column >
+                      <Image className='img-logo' src={metadata.logo_url} responsive />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row columns={1} textAlign='center'>
+                    <Grid.Column>
+                      <Button size='huge' basic target='_blank' href={metadata.web_url}>Kunjungi Website</Button>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid.Row>
 
-          <Grid.Row className='chart' columns={3}>
-            <Grid.Column mobile={16} tablet={16} computer={5}>
-              <Chart container='chart1' options={this.state.options.positive_stat} />
-            </Grid.Column>
-            <Grid.Column mobile={16} tablet={16} computer={5}>
-              <Chart container='chart2' options={this.state.options.negative_stat} />
-            </Grid.Column>
-            <Grid.Column mobile={16} tablet={16} computer={5}>
-              <Chart container='chart3' options={this.state.options.neutral_stat} />
-            </Grid.Column>
-          </Grid.Row>
+                <SentimentChart data={statistics} />
 
-          <Grid.Row className='divider related-tag'>
-            <RelatedTagSection related_tag={this.state.related_tag} />
-          </Grid.Row>
+                <Grid.Row className='divider related-tag'>
+                  <RelatedTagSection related_tag={this.state.related_tag} />
+                </Grid.Row>
 
-          <Grid.Row>
-            <NewsSection data={this.state.data} />
-          </Grid.Row>
-        </Grid>
+                <Grid.Row>
+                  <NewsSection data={articles} />
+                </Grid.Row>
+              </Grid>
+            )
+        }
+
       </Container>
     )
   }
 }
 
 MediaDetail.propTypes = {
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  metadata: PropTypes.object.isRequired,
+  articles: PropTypes.array.isRequired,
+  statistics: PropTypes.object.isRequired
 }
 
 export default MediaDetail

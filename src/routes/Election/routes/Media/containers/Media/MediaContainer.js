@@ -6,7 +6,10 @@ import { connect } from 'react-redux'
 import * as Actions from './../../actions'
 
 const mapStateToProps = (state) => ({
-  loading: state.loading
+  loading: state.loading,
+  metadata: state.media.metadata,
+  articles: state.media.articles,
+  statistics: state.media.statistics
 })
 
 const mapDispatchToProps = dispatch => ({

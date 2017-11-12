@@ -38,11 +38,11 @@ export const dataService = store => next => action => {
     case 'LOAD_MEDIA_DATA':
       loadMediaData(action.electionId, action.mediaId)
         .then(data => {
-          console.log(data)
           next({
             type: 'MEDIA_DATA_RECEIVED',
-            // candidates: data[0].data,
-            // media: data[1].data
+            metadata: data[0].data,
+            articles: data[1].data.news,
+            statistics: data[2].data
           })
         }).catch(err => {
           console.log(err)
