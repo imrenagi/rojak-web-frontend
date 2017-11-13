@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
   loading: state.loading,
   metadata: state.media.metadata,
   articles: state.media.articles,
+  articlesMeta: state.media.articlesMeta,
   statistics: state.media.statistics
 })
 

@@ -42,12 +42,28 @@ export const dataService = store => next => action => {
             type: 'MEDIA_DATA_RECEIVED',
             metadata: data[0].data,
             articles: data[1].data.news,
+            articlesMeta: data[1].data.meta,
             statistics: data[2].data
           })
         }).catch(err => {
           console.log(err)
           next({
             type: 'MEDIA_DATA_ERROR',
+            err
+          })
+        })
+      break
+    case 'LOAD_MEDIA_ARTICLES':
+      client.loadMediaArticles(action.electionId, action.mediaId, action.page)
+        .then(data => {
+          next({
+            type: 'ARTICLES_DATA_RECEIVED',
+            articles: data.data.news,
+            articlesMeta: data.data.meta
+          })
+        }).catch(err => {
+          next({
+            type: 'ARTICLES_DATA_ERROR',
             err
           })
         })

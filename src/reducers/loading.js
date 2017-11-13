@@ -13,6 +13,12 @@ const loading = (state = false, action) => {
       return false
     case 'MEDIA_DATA_ERROR':
       return false
+    case 'LOAD_MEDIA_ARTICLES':
+      return true
+    case 'ARTICLES_DATA_RECEIVED':
+      return false
+    case 'ARTICLES_DATA_ERROR':
+      return false
     default:
       return state
   }

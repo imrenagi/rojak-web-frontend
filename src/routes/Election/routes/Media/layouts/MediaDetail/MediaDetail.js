@@ -131,6 +131,7 @@ class MediaDetail extends React.Component {
         }
       }
     }
+    this.loadArticles = this.loadArticles.bind(this)
   }
 
   componentDidMount () {
@@ -139,8 +140,15 @@ class MediaDetail extends React.Component {
     this.props.actions.loadMediaData(electionId, mediaId)
   }
 
+  loadArticles (page) {
+    console.log(page + ' -------- ')
+    const electionId = this.props.match.params.electionId
+    const mediaId = this.props.match.params.mediaId
+    this.props.actions.loadMediaArticles(electionId, mediaId, page)
+  }
+
   render () {
-    const { metadata, articles, statistics, loading } = this.props
+    const { metadata, articles, articlesMeta, statistics, loading } = this.props
 
     return (
       <Container>
@@ -173,12 +181,15 @@ class MediaDetail extends React.Component {
                 </Grid.Row>
 
                 <Grid.Row>
-                  <NewsSection data={articles} />
+                  <NewsSection
+                    data={articles}
+                    meta={articlesMeta}
+                    loadArticles={this.loadArticles}
+                  />
                 </Grid.Row>
               </Grid>
             )
         }
-
       </Container>
     )
   }
@@ -188,7 +199,8 @@ MediaDetail.propTypes = {
   actions: PropTypes.object.isRequired,
   metadata: PropTypes.object.isRequired,
   articles: PropTypes.array.isRequired,
-  statistics: PropTypes.object.isRequired
+  articlesMeta: PropTypes.object.isRequired,
+  statistics: PropTypes.object.isRequired,
 }
 
 export default MediaDetail

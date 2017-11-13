@@ -39,10 +39,11 @@ class APIClient {
     })
   }
 
-  loadMediaArticles (electionId, mediaId) {
+  loadMediaArticles (electionId, mediaId, page) {
+    if (page === undefined || page === 0) page = 1
     return axios({
       method: 'get',
-      url: this.baseUrl + '/analytics/medias/' + mediaId + '/elections/' + electionId + '/news?page=1&limit=10',
+      url: this.baseUrl + '/analytics/medias/' + mediaId + '/elections/' + electionId + '/news?page=' + page + '&limit=10',
       responseType: 'json'
     })
   }
