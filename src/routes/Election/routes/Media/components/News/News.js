@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item } from 'semantic-ui-react'
+import { Item, Label } from 'semantic-ui-react'
 import './news.css'
 
 export default class News extends React.Component {
@@ -8,6 +8,11 @@ export default class News extends React.Component {
   }
 
   render () {
+    const sentimentLabel = this.props.sentiments.map((t) => {
+      return (
+        <Label size='gray' color='blue' horizontal>{t}</Label>
+      )
+    })
     return (
       <Item className='article-list'>
         <Item.Content>
@@ -23,10 +28,7 @@ export default class News extends React.Component {
             <span className='bold'>{this.props.timestamp} - </span>
             {this.props.content}
           </Item.Description>
-          <Item.Extra className='news-sentiment'>
-            <span className='bold'>Hasil: </span>
-            {this.joinArr(this.props.sentiments)}
-          </Item.Extra>
+          {sentimentLabel}
         </Item.Content>
       </Item>
     )

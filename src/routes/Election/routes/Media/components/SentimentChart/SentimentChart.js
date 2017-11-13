@@ -48,7 +48,7 @@ export default class SentimentChart extends React.Component {
   constructChart (title, subtitle, stats) {
     if (stats && stats.xAxis) {
       var categories = stats.xAxis.categories.map((timestamp) => {
-        return DateUtils.timestampToDate(timestamp/1000)
+        return DateUtils.timestampToDate(timestamp / 1000)
       })
       var data = stats.series
       return this.chartOptions(title, subtitle, categories, data)
