@@ -58,16 +58,16 @@ export default class Pagination extends React.Component {
       .map((num) => {
         if (num === -2) {
           return (
-            <Menu.Item name='Prev' active={activeItem === 1} onClick={this.handlePrevClick} />
+            <Menu.Item key='Prev' name='Prev' active={activeItem === 1} onClick={this.handlePrevClick} />
           )
         } else if (num === -1) {
           return (
-            <Menu.Item name='Next' active={activeItem >= totalPages} onClick={this.handleNextClick} />
+            <Menu.Item key='Next' name='Next' active={activeItem >= totalPages} onClick={this.handleNextClick} />
           )
         } else {
           var name = num + ''
           return (
-            <Menu.Item name={name} active={activeItem === num} onClick={this.handleItemClick} />
+            <Menu.Item key={name} name={name} active={activeItem === num} onClick={this.handleItemClick} />
           )
         }
       })

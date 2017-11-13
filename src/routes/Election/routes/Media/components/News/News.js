@@ -3,20 +3,16 @@ import { Item, Label } from 'semantic-ui-react'
 import './news.css'
 
 export default class News extends React.Component {
-  joinArr (arr) {
-    return arr.join(', ')
-  }
-
   render () {
-    const sentimentLabel = this.props.sentiments.map((t) => {
+    const sentimentLabel = this.props.sentiments.map((t, idx) => {
       return (
-        <Label size='gray' color='blue' horizontal>{t}</Label>
+        <Label key={t + '-' + idx} size='huge' color='blue' horizontal>{t}</Label>
       )
     })
     return (
       <Item className='article-list'>
         <Item.Content>
-          <Item.Header as='a' className='news-title'>
+          <Item.Header as='ttl' className='news-title'>
             <a href={this.props.url}>
               <h3>{this.props.title}</h3>
             </a>

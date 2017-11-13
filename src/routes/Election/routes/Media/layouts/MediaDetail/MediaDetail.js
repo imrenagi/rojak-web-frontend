@@ -155,7 +155,7 @@ class MediaDetail extends React.Component {
         {
           loading
             ? (
-              <Dimmer active fluid style={{ minHeight: '500px' }}>
+              <Dimmer active style={{ minHeight: '500px' }}>
                 <Loader active size='huge' content='Loading' />
               </Dimmer>
             )
