@@ -7,6 +7,7 @@ export default class NewsSection extends React.Component {
     var newsItem = this.props.data.map((news) => {
       return (
         <News
+          key={news.id}
           title={news.title}
           url={news.url}
           timestamp={news.timestamp}

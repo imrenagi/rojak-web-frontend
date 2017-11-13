@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import election from './election'
 import loading from './loading'
+import media from './media'
 
-const electionHome = combineReducers({
+const reducers = combineReducers({
   election,
+  media,
   loading
 })
 
-export default electionHome
+export default reducers

@@ -30,6 +30,30 @@ class APIClient {
       responseType: 'json'
     })
   }
+
+  loadMediaInfo (mediaId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl + '/medias/' + mediaId,
+      responseType: 'json'
+    })
+  }
+
+  loadMediaArticles (electionId, mediaId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl + '/analytics/medias/' + mediaId + '/elections/' + electionId + '/news?page=1&limit=10',
+      responseType: 'json'
+    })
+  }
+
+  loadMediaStatisticForAllCandidate (electionId, mediaId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl + '/analytics/elections/' + electionId + '/medias/' + mediaId + '/statistics',
+      responseType: 'json'
+    })
+  }
 }
 
 module.exports = APIClient

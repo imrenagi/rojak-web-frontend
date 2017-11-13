@@ -7,6 +7,12 @@ const loading = (state = false, action) => {
       return false
     case 'ELECTION_DATA_ERROR':
       return false
+    case 'LOAD_MEDIA_DATA':
+      return true
+    case 'MEDIA_DATA_RECEIVED':
+      return false
+    case 'MEDIA_DATA_ERROR':
+      return false
     default:
       return state
   }
