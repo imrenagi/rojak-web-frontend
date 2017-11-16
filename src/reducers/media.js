@@ -10,6 +10,7 @@ const initialState = {
 const media = (state = initialState, action) => {
   switch (action.type) {
     case 'LOAD_MEDIA_DATA':
+      console.log(action)
       return Object.assign({}, state, {
         electionId: action.electionId,
         mediaId: action.mediaId
@@ -22,6 +23,7 @@ const media = (state = initialState, action) => {
         statistics: action.statistics
       })
     case 'ARTICLES_DATA_RECEIVED':
+      console.log(action)
       return Object.assign({}, state, {
         articles: action.articles,
         articlesMeta: action.articlesMeta,

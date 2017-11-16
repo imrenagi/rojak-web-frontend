@@ -40,7 +40,8 @@ export default class MediaList extends React.Component {
       },
       plotOptions: {
         series: {
-          stacking: 'normal'
+          stacking: 'normal',
+          pointWidth: 20
         }
       },
       series: [{

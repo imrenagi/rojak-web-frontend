@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import MediaDetail from './containers/Media'
+import MediaDetail from './layouts/MediaDetail'
 
 const MediaRouter = () => (
   <Switch>
