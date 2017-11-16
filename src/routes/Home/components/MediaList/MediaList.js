@@ -11,7 +11,8 @@ export default class MediaList extends React.Component {
   chartOptions (candidates, posArr, negArr, neutralArr) {
     return {
       chart: {
-        type: 'bar'
+        type: 'bar',
+        height: 250,
       },
       title: {
         text: ''
@@ -20,7 +21,7 @@ export default class MediaList extends React.Component {
         categories: candidates,
         labels: {
           style: {
-            fontSize:'17px'
+            fontSize:'15px'
           }
         }
       },
@@ -41,7 +42,9 @@ export default class MediaList extends React.Component {
       plotOptions: {
         series: {
           stacking: 'normal',
-          pointWidth: 20
+          pointWidth: 20,
+          pointPadding: 0,
+          groupPadding: 0
         }
       },
       series: [{

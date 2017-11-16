@@ -4,28 +4,20 @@ import { Route } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 import MediaList from '../MediaList'
 
-import './mediasection.css'
-
 export default class MediaSection extends React.Component {
   render () {
     return (
       <Route render={({ history }) => (
-        <div className='wrapper style2 media'>
-          <div className='container-atas'>
-            <div className='row title'>
-              <h1>Media</h1>
+        <div>
+          <h1>Media</h1>
+          <p>Rangkuman Analisis Sentiment Berita dari seluruh media yang turut serta memberitakan
+            Pilkada Jawa Barat 2018</p>
+          <Container>
+            <MediaList data={this.props.media} />
+            <div className='row load-more'>
+              <Button bsStyle='primary' bsSize='large'>Tamplikan Selengkapnya</Button>
             </div>
-            <div className='row description'>
-              <p>Rangkuman Analisis Sentiment Berita dari seluruh media yang turut serta memberitakan
-              Pilkada Jawa Barat 2018</p>
-            </div>
-            <Container>
-              <MediaList data={this.props.media} />
-              <div className='row load-more'>
-                <Button bsStyle='primary' bsSize='large'>Tamplikan Selengkapnya</Button>
-              </div>
-            </Container>
-          </div>
+          </Container>
         </div>
       )} />
     )

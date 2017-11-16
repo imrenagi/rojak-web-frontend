@@ -3,8 +3,6 @@ import Map from 'components/charts/Map'
 import CandidateChartModal from '../CandidateChartModal'
 import geoData from './id-all.geo.json'
 
-import './indonesiamap.css'
-
 // const data = [
 //   ['id-3700', 0],
 //   ['id-ac', 1],

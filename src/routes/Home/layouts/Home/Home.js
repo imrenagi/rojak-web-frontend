@@ -8,8 +8,6 @@ import { Dimmer, Loader, Segment } from 'semantic-ui-react'
 
 import PropTypes from 'prop-types'
 
-import './home.css'
-
 class Home extends React.Component {
   constructor () {
     super()
@@ -30,12 +28,12 @@ class Home extends React.Component {
         {
           loading
             ? (
-              <Dimmer active fluid style={{ minHeight: '500px' }}>
+              <Dimmer active fluid style={{ minHeight: '900px' }}>
                 <Loader active size='huge' content='Loading' />
               </Dimmer>
             )
             : (
-              <div className='container-fluid'>
+              <div>
                 <IndonesiaMap action={actions.selectElection} />
                 <CandidateSection electionId={electionId} candidates={candidates} />
                 <MediaSection electionId={electionId} media={media} />
