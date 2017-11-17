@@ -21,7 +21,7 @@ export default class MediaItem extends React.Component {
               </Card.Content>
             </Card>
             <div >
-              <Statistic size='small' className='text-centered'>
+              <Statistic size='medium' className='text-centered'>
                 <Statistic.Value>{this.props.media.total_news}</Statistic.Value>
                 <Statistic.Label>Berita</Statistic.Label>
               </Statistic>
