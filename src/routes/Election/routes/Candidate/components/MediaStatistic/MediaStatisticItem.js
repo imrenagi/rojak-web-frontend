@@ -9,95 +9,101 @@ var Highcharts = require('highcharts')
 export default class MediaStatistic extends React.Component {
   constructor () {
     super()
-    this.state = {
-      options : {
-        chart: {
-          type: 'bar'
-        },
-        title: {
-          text: ''
-        },
-        xAxis: {
-          type: 'category'
-        },
-        yAxis: {
-          labels: {
-            formatter: function () {
-              var pcnt = (this.value / 150) * 100
-              return Highcharts.numberFormat(pcnt, 0, ',') + '%'
-            }
-          },
-          gridLineWidth: 0,
-          minorGridLineWidth: 0,
-          title: {
-            text: 'Total berita'
-          }
-        },
-        legend: {
-          layout: 'vertical',
-          enabled: false
-        },
-        plotOptions: {
-          series: {
-            borderWidth: 0,
-            pointPadding: 0,
-            groupPadding: 0.2,
+    this.chartOptions = this.chartOptions.bind(this)
+  }
 
-            dataLabels:{
-              enabled:true,
-              formatter: function () {
-                var pcnt = (this.y / 150) * 100
-                return Highcharts.numberFormat(pcnt) + '%'
-              }
-            }
+  chartOptions (pos, neg, neut) {
+    return {
+      chart: {
+        height: 250,
+        type: 'bar'
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        type: 'category'
+      },
+      yAxis: {
+        labels: {
+          formatter: function () {
+            return Highcharts.numberFormat(this.value, 0, ',')
           }
         },
-        tooltip: {
-          pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> berita<br/>'
+        gridLineWidth: 0,
+        minorGridLineWidth: 0,
+        title: {
+          text: 'Total berita'
+        }
+      },
+      legend: {
+        layout: 'vertical',
+        enabled: false
+      },
+      plotOptions: {
+        series: {
+          pointWidth: 20,
+          borderWidth: 0,
+          pointPadding: 0,
+          groupPadding: 0.2,
+          dataLabels:{
+            enabled:false,
+            formatter: function () {
+              return Highcharts.numberFormat(this.y, 0, ',') + ' Berita'
+            }
+          }
+        }
+      },
+      tooltip: {
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> berita<br/>'
+      },
+      series: [{
+        colorByPoint: true,
+        data: [{
+          color: 'green',
+          name: 'Positif',
+          y: pos
         },
-        series: [{
-          colorByPoint: true,
-          data: [{
-            color: 'green',
-            name: 'Positif',
-            y: 20
-          },
-          {
-            color: 'red',
-            name: 'Negatif',
-            y: 40
-          },
-          {
-            color: 'blue',
-            name: 'Neutral',
-            y: 90
-          }]
+        {
+          color: 'red',
+          name: 'Negatif',
+          y: neg
+        },
+        {
+          color: 'blue',
+          name: 'Neutral',
+          y: neut
         }]
-      }
+      }]
     }
   }
 
   render () {
+    const { data } = this.props
     return (
-      <Item id={this.props.logo_url}>
-        <div className='media-info-card col-lg-3 col-md-3 col-sm-12 col-xs-12 '>
-          <Card fluid className='text-centered'>
-            <Image src={this.props.logo_url} />
+      <Item id={data.logo_url}>
+        <div className='media-info-card'>
+          <Card fluid>
+            <Image src={data.logo_url} />
             <Card.Content>
-              <Card.Header>Sentimen Kompas.com terhadap Anies & Sandi</Card.Header>
+              <Card.Header>{data.name}</Card.Header>
               <Card.Description>Kompas cukup netral dalam pilkada ini</Card.Description>
             </Card.Content>
           </Card>
           <div >
-            <Statistic size='medium' className='text-centered'>
-              <Statistic.Value>5,550</Statistic.Value>
+            <Statistic size='small' className='text-centered'>
+              <Statistic.Value>{data.statistic.total_news}</Statistic.Value>
               <Statistic.Label>Berita</Statistic.Label>
             </Statistic>
           </div>
           <Button fluid size='huge'>Lihat Berita</Button>
         </div>
-        <div className='col-lg-9 col-md-9 col-sm-12 col-xs-12'>
-          <Chart container={this.props.container} options={this.state.options} />
+        <div>
+          <Chart container={this.props.container} options={this.chartOptions(
+            data.statistic.total_pos_news,
+            data.statistic.total_neg_news,
+            data.statistic.total_neutral_news
+          )} />
         </div>
       </Item>
     )

@@ -1,17 +1,18 @@
 import React from 'react'
-import { Item } from 'semantic-ui-react'
+import { Item, Label } from 'semantic-ui-react'
 import './news.css'
 
 export default class News extends React.Component {
-  joinArr (arr) {
-    return arr.join(', ')
-  }
-
   render () {
+    const sentimentLabel = this.props.sentiments.map((t, idx) => {
+      return (
+        <Label key={t + '-' + idx} size='huge' color='blue' horizontal>{t}</Label>
+      )
+    })
     return (
       <Item className='article-list'>
         <Item.Content>
-          <Item.Header as='a' className='news-title'>
+          <Item.Header as='ttl' className='news-title'>
             <a href={this.props.url}>
               <h3>{this.props.title}</h3>
             </a>
@@ -23,10 +24,7 @@ export default class News extends React.Component {
             <span className='bold'>{this.props.timestamp} - </span>
             {this.props.content}
           </Item.Description>
-          <Item.Extra className='news-sentiment'>
-            <span className='bold'>Hasil: </span>
-            {this.joinArr(this.props.sentiments)}
-          </Item.Extra>
+          {sentimentLabel}
         </Item.Content>
       </Item>
     )

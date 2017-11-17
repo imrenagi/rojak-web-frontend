@@ -6,9 +6,13 @@ import './mediaverticallist.css'
 
 export default class MediaVerticalList extends React.Component {
   render () {
-    var mediaNodes = this.props.data.map((media) => {
+    var arr = this.props.data
+    if (arr === undefined) {
+      arr = []
+    }
+    var mediaNodes = arr.map((media, idx) => {
       return (
-        <MediaSummary logo_url={media.logo_url} />
+        <MediaSummary key={media.id + '-' + idx} logo_url={media.logo_url} />
       )
     })
 
