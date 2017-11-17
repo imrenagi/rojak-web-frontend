@@ -10,16 +10,14 @@ class CandidateSection extends React.Component {
   render () {
     return (
       <Route render={({ history }) => (
-        <div>
+        <Container>
           <Header as='h1' textAlign='center'>Kandidat</Header>
           <p className='center-p'>Kandidat Pemilu {this.props.electionId}</p>
-          <Container>
-            <CandidateList data={this.props.candidates} />
-            <Button fluid size='huge'
-              onClick={() => { history.push('/election/dkijakarta/candidate/1') }}>
-              Temp Candidate Detail Page</Button>
-          </Container>
-        </div>
+          <CandidateList data={this.props.candidates} />
+          <Button fluid size='huge'
+            onClick={() => { history.push('/election/dkijakarta/candidate/1') }}>
+            Temp Candidate Detail Page</Button>
+        </Container>
       )} />
     )
   }
