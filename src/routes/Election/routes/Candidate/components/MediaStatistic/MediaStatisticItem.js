@@ -91,7 +91,7 @@ export default class MediaStatistic extends React.Component {
             </Card.Content>
           </Card>
           <div >
-            <Statistic size='medium' className='text-centered'>
+            <Statistic size='tiny'>
               <Statistic.Value>{data.statistic.total_news}</Statistic.Value>
               <Statistic.Label>Berita</Statistic.Label>
             </Statistic>
