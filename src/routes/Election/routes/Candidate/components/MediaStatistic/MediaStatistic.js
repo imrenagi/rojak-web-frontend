@@ -1,5 +1,5 @@
 import React from 'react'
-import { Item } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import MediaStatisticItem from './MediaStatisticItem'
 
 import { bindActionCreators } from 'redux'
@@ -24,9 +24,9 @@ class MediaStatistic extends React.Component {
     })
 
     return (
-      <Item.Group divided>
+      <Grid divided='vertically'>
         {statItem}
-      </Item.Group>
+      </Grid>
     )
   }
 }

@@ -1,16 +1,18 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Button, Container } from 'semantic-ui-react'
+import { Button, Container, Header } from 'semantic-ui-react'
 import CandidateList from '../CandidateList'
 import PropTypes from 'prop-types'
+
+import './candidatesection.css'
 
 class CandidateSection extends React.Component {
   render () {
     return (
       <Route render={({ history }) => (
         <div>
-          <h1>Kandidat</h1>
-          <p>Kandidat Pemilu {this.props.electionId}</p>
+          <Header as='h1' textAlign='center'>Kandidat</Header>
+          <p className='center-p'>Kandidat Pemilu {this.props.electionId}</p>
           <Container>
             <CandidateList data={this.props.candidates} />
             <Button fluid size='huge'

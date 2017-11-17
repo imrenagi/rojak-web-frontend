@@ -1,6 +1,5 @@
 import React from 'react'
-import { Image } from 'react-bootstrap'
-import { Container, Grid, Button, Dimmer, Loader } from 'semantic-ui-react'
+import { Container, Grid, Button, Dimmer, Loader, Image } from 'semantic-ui-react'
 
 import NewsSection from '../../components/NewsSection'
 import RelatedTagSection from '../../components/RelatedTagSection'
@@ -47,7 +46,7 @@ class MediaDetail extends React.Component {
                 <Grid.Row columns={1}>
                   <Grid.Row columns={1} textAlign='center'>
                     <Grid.Column >
-                      <Image className='img-logo' src={metadata.logo_url} responsive />
+                      <Image className='img-logo' src={metadata.logo_url} />
                     </Grid.Column>
                   </Grid.Row>
                   <Grid.Row columns={1} textAlign='center'>

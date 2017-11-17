@@ -1,4 +1,4 @@
-.candidate {
+/*.candidate {
   position: relative;
   text-align: center;
   margin-left: -15px;
@@ -57,4 +57,8 @@
   border-bottom: 1px solid rgba(144, 144, 144, 0.25);
   border-top: 1px solid rgba(144, 144, 144, 0.25);
   background-color: #eff5f5;
+}*/
+
+.center-p {
+  text-align: center;
 }
