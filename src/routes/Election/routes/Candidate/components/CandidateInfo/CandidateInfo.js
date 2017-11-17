@@ -1,78 +1,75 @@
 import React from 'react'
 import { Card, Image, Popup, Button, Grid } from 'semantic-ui-react'
-
 import Chart from 'components/charts/Chart'
+import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as Actions from './../../actions'
+import DateUtils from 'utils/dateutils'
 
 import './candidateinfo.css'
 
-export default class CandidateInfo extends React.Component {
+class CandidateInfo extends React.Component {
   constructor () {
     super()
-    this.state = {
-      data : [],
-      options: {
+    this.constructChart = this.constructChart.bind(this)
+    this.chartOptions = this.chartOptions.bind(this)
+  }
+
+  chartOptions (candidateName, categories, series) {
+    return {
+      title: {
+        text: 'Sentimen Media Online'
+      },
+      subtitle: {
+        text: candidateName
+      },
+      yAxis: {
         title: {
-          text: 'Sentiment Trends from all media'
+          text: 'Jumlah Berita'
         },
+        gridLineWidth: 0,
+        minorGridLineWidth: 0
+      },
+      legend: {
+        layout: 'horizontal',
+        align: 'center',
+        verticalAlign: 'bottom'
+      },
+      xAxis: {
+        categories: categories
+      },
+      series: series
+    }
+  }
 
-        subtitle: {
-          text: 'This belongs to Jokowi and Anies in Pilkada DKI'
-        },
-
-        yAxis: {
-          title: {
-            text: 'Number of News'
-          },
-          gridLineWidth: 0,
-          minorGridLineWidth: 0
-        },
-        legend: {
-          layout: 'horizontal',
-          align: 'center',
-          verticalAlign: 'bottom'
-        },
-        xAxis: {
-          type: 'datetime'
-        },
-        plotOptions: {
-          series: {
-            pointStart: Date.UTC(2010, 0, 1),
-            pointInterval: 24 * 3600 * 1000 // one day
-          }
-        },
-
-        series: [{
-          name: 'Positive News',
-          color: '#00FF00',
-          data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }, {
-          name: 'Negative News',
-          color: '#FF0000',
-          data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        }, {
-          name: 'Neutral News',
-          color: '#0000FF',
-          data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-        }]
-      }
+  constructChart (candidateName, xaxis, series) {
+    if (xaxis) {
+      var categories = xaxis.categories.map((timestamp) => {
+        return DateUtils.timestampToDate(timestamp / 1000)
+      })
+      return this.chartOptions(candidateName, categories, series)
+    } else {
+      return this.chartOptions(candidateName, [], [])
     }
   }
 
   render () {
+    const { data, statistics } = this.props
     return (
       <Grid.Row>
         <div className='candidate-name'>
-          <h1>{this.props.name}</h1>
+          <h1>{data.name}</h1>
           <Popup size='huge'
-            trigger={<Button circular size='huge' color='instagram' icon='instagram' target='_blank' href='http://www.instagram.com' />}
+            trigger={<Button circular size='huge' color='instagram' icon='instagram' target='_blank' href={'https://www.instagram.com/' + data.instagram_id} />}
             content='View on instagram'
           />
           <Popup size='huge'
-            trigger={<Button circular size='huge' color='facebook' icon='facebook f' target='_blank' href='http://www.facebook.com' />}
+            trigger={<Button circular size='huge' color='facebook' icon='facebook f' target='_blank' href={data.facebook_url} />}
             content='View on facebook'
           />
           <Popup size='huge'
-            trigger={<Button circular size='huge' color='twitter' icon='twitter' target='_blank' href='http://www.twitter.com' />}
+            trigger={<Button circular size='huge' color='twitter' icon='twitter' target='_blank' href={'https://www.twitter.com/' + data.twitter_id} />}
             content='View on twitter'
           />
         </div>
@@ -81,16 +78,18 @@ export default class CandidateInfo extends React.Component {
           <Grid.Row>
             <Grid.Column className='img-card' computer={4} tablet={4} mobile={16}>
               <Card fluid>
-                <Image src={this.props.image_url} />
+                <Image src={data.image_url} />
                 <Card.Content>
-                  <Card.Header>{this.props.name}</Card.Header>
+                  <Card.Header>{data.name}</Card.Header>
                   <Card.Meta>#OkeOce</Card.Meta>
                   <Card.Description>Moto: Pantang maju sebelum mundur.</Card.Description>
                 </Card.Content>
               </Card>
             </Grid.Column>
             <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
-              <Chart container='chart' options={this.state.options} />
+              <Chart container='chart' options={this.constructChart(data.name,
+                statistics.xAxis,
+                statistics.series)} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -98,3 +97,23 @@ export default class CandidateInfo extends React.Component {
     )
   }
 }
+
+CandidateInfo.propTypes = {
+  data: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  data: state.candidate.data,
+  statistics: state.candidate.statistics
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+})
+
+const CandidateInfoContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CandidateInfo)
+
+export default CandidateInfoContainer

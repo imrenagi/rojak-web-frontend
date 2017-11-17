@@ -55,6 +55,30 @@ class APIClient {
       responseType: 'json'
     })
   }
+
+  loadCandidateDetail (electionId, candidateId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl + '/elections/' + electionId + '/candidates/' + candidateId,
+      responseType: 'json'
+    })
+  }
+
+  loadCandidateStatistic (electionId, candidateId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl + '/analytics/elections/' + electionId + '/candidates/' + candidateId + '/statistics',
+      responseType: 'json'
+    })
+  }
+
+  loadCandidateSentimentGroup (electionId, candidateId) {
+    return axios({
+      method: 'get',
+      url: this.baseUrl + '/elections/' + electionId + '/candidates/' + candidateId + '/medias',
+      responseType: 'json'
+    })
+  }
 }
 
 module.exports = APIClient

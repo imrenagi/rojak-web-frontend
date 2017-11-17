@@ -16,6 +16,14 @@ function loadMediaData (electionId, mediaId) {
   ])
 }
 
+function loadCandidateData (electionId, candidateId) {
+  return Promise.all([
+    client.loadCandidateDetail(electionId, candidateId),
+    client.loadCandidateStatistic(electionId, candidateId),
+    client.loadCandidateSentimentGroup(electionId, candidateId)
+  ])
+}
+
 export const dataService = store => next => action => {
   next(action)
   switch (action.type) {
@@ -28,7 +36,6 @@ export const dataService = store => next => action => {
             media: data[1].data
           })
         }).catch(err => {
-          console.log(err)
           next({
             type: 'ELECTION_DATA_ERROR',
             err
@@ -46,7 +53,6 @@ export const dataService = store => next => action => {
             statistics: data[2].data
           })
         }).catch(err => {
-          console.log(err)
           next({
             type: 'MEDIA_DATA_ERROR',
             err
@@ -64,6 +70,22 @@ export const dataService = store => next => action => {
         }).catch(err => {
           next({
             type: 'ARTICLES_DATA_ERROR',
+            err
+          })
+        })
+      break
+    case 'LOAD_CANDIDATE_DATA':
+      loadCandidateData(action.electionId, action.candidateId)
+        .then(data => {
+          next({
+            type: 'CANDIDATE_DATA_RECEIVED',
+            data: data[0].data,
+            statistics: data[1].data,
+            sentimentGroups: data[2].data
+          })
+        }).catch(err => {
+          next({
+            type: 'CANDIDATE_DATA_ERROR',
             err
           })
         })

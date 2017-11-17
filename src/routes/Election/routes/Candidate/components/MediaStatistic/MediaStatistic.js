@@ -2,22 +2,47 @@ import React from 'react'
 import { Item } from 'semantic-ui-react'
 import MediaStatisticItem from './MediaStatisticItem'
 
-export default class MediaStatistic extends React.Component {
-  constructor () {
-    super()
-    this.state = {}
-  }
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as Actions from './../../actions'
 
+class MediaStatistic extends React.Component {
   render () {
+    const { data } = this.props
+
+    var media = Array.prototype
+      .concat(data.positive_medias, data.negative_medias, data.neutral_medias)
+      .filter((media) => media !== undefined)
+
+    const statItem = media.map((media, idx) => {
+      return (
+        <MediaStatisticItem
+          key={'stat-' + media.id + '-' + idx}
+          container={'chart-stat-' + idx}
+          data={media} />
+      )
+    })
+
     return (
       <Item.Group divided>
-        <MediaStatisticItem
-          container='chart1'
-          logo_url='http://assets.kompas.com/data/2016/wp/images/logokompascom.png' />
-        <MediaStatisticItem
-          container='chart2'
-          logo_url='https://growpal.co.id/assets_frontend/images/republika.jpg' />
+        {statItem}
       </Item.Group>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+  data: state.candidate.sentimentGroups
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+})
+
+const MediaStatisticContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MediaStatistic)
+
+export default MediaStatisticContainer
