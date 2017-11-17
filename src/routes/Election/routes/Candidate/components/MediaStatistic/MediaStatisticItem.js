@@ -82,7 +82,7 @@ export default class MediaStatistic extends React.Component {
     const { data } = this.props
     return (
       <Item id={data.logo_url}>
-        <div className='media-info-card col-lg-3 col-md-3 col-sm-12 col-xs-12 '>
+        <div className='media-info-card'>
           <Card fluid>
             <Image src={data.logo_url} />
             <Card.Content>
@@ -98,7 +98,7 @@ export default class MediaStatistic extends React.Component {
           </div>
           <Button fluid size='huge'>Lihat Berita</Button>
         </div>
-        <div className='col-lg-9 col-md-9 col-sm-12 col-xs-12'>
+        <div>
           <Chart container={this.props.container} options={this.chartOptions(
             data.statistic.total_pos_news,
             data.statistic.total_neg_news,
