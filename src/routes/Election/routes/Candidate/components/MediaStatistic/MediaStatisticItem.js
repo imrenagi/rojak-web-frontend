@@ -1,7 +1,7 @@
 import './mediastatisticitem.css'
 
 import React from 'react'
-import { Card, Item, Image, Button, Statistic } from 'semantic-ui-react'
+import { Card, Grid, Image, Button, Statistic } from 'semantic-ui-react'
 import Chart from 'components/charts/Chart'
 
 var Highcharts = require('highcharts')
@@ -81,9 +81,9 @@ export default class MediaStatistic extends React.Component {
   render () {
     const { data } = this.props
     return (
-      <Item id={data.logo_url}>
-        <div className='media-info-card'>
-          <Card fluid>
+      <Grid.Row columns={2} id={data.logo_url}>
+        <Grid.Column computer={5} tablet={5} mobile={16}>
+          <Card>
             <Image src={data.logo_url} />
             <Card.Content>
               <Card.Header>{data.name}</Card.Header>
@@ -91,21 +91,21 @@ export default class MediaStatistic extends React.Component {
             </Card.Content>
           </Card>
           <div >
-            <Statistic size='small' className='text-centered'>
+            <Statistic size='medium' className='text-centered'>
               <Statistic.Value>{data.statistic.total_news}</Statistic.Value>
               <Statistic.Label>Berita</Statistic.Label>
             </Statistic>
           </div>
-          <Button fluid size='huge'>Lihat Berita</Button>
-        </div>
-        <div>
+          <Button size='large' fluid>Lihat Detail</Button>
+        </Grid.Column>
+        <Grid.Column computer={11} tablet={11} mobile={16}>
           <Chart container={this.props.container} options={this.chartOptions(
             data.statistic.total_pos_news,
             data.statistic.total_neg_news,
             data.statistic.total_neutral_news
           )} />
-        </div>
-      </Item>
+        </Grid.Column>
+      </Grid.Row>
     )
   }
 }
