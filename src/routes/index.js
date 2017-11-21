@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './Home/containers/Home'
 import Election from './Election'
 import Login from './Login'
+import Dashboard from './Dashboard'
 
 const Main = () => (
   <main>
@@ -12,6 +13,7 @@ const Main = () => (
       <Route exact path='/' component={Home} />
       <Route path='/election' component={Election} />
       <Route path='/login' component={Login} />
+      <Route path='/dashboard' component={Dashboard} />
     </Switch>
   </main>
 )
