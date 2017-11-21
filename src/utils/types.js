@@ -1,0 +1,12 @@
+export const AUTH_USER = 'auth_user'
+export const UNAUTH_USER = 'unauth_user'
+export const AUTH_ERROR = 'auth_error'
+export const FORGOT_PASSWORD_REQUEST = 'forgot_password_request'
+export const RESET_PASSWORD_REQUEST = 'reset_password_request'
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST'
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'

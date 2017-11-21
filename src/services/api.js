@@ -7,6 +7,17 @@ class APIClient {
     this.baseUrl = 'http://private-052434-rojak.apiary-mock.com'
   }
 
+  login (username, password) {
+    // return axios
+    //   .post(`${this.baseUrl}/uaa/oauth/token?grant_type=password&username=${username}&password=${password}&client_id=browser`)
+    return new Promise(function (resolve, reject) {
+      resolve({
+        token: '15fe237f-ae34-4524-a503-e586e6fecd8c',
+        refresh_token: '35cc3322-eb69-4155-a120-f484b9ab93e5'
+      })
+    })
+  }
+
   loadAllCandidate (electionId) {
     return axios({
       method: 'get',

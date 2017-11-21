@@ -86,7 +86,7 @@ class CandidateInfo extends React.Component {
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
+            <Grid.Column className='chart' computer={12} tablet={12} mobile={16}>
               <Chart container='chart' options={this.constructChart(data.name,
                 statistics.xAxis,
                 statistics.series)} />

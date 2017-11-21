@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Main from 'routes'
-import NavigationBar from '../../components/NavigationBar'
+import NavigationBar from 'components/NavigationBar'
 
 export default class App extends React.Component {
   render () {

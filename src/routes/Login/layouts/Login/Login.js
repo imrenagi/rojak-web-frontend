@@ -1,47 +1,62 @@
 import React from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
-import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
+import { Form, Button } from 'semantic-ui-react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as Actions from './../../actions'
+import { withRouter } from 'react-router-dom'
 
 import './login.css'
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       username:'',
       password:''
     }
+    // redirect to dashboard if they already logged in
+    const { isAuthenticated } = this.props
+    if (isAuthenticated) {
+      window.location.href = '/dashboard'
+    }
+  }
+
+  handleChange = (e, { name, value }) => {
+    this.setState({ [name]: value })
+  }
+
+  handleSubmit = () => {
+    const { username, password } = this.state
+    const { actions } = this.props
+    actions.login(username, password)
+    this.setState({ username: username, password: password })
   }
 
   render () {
+    const { username, password } = this.state
     return (
       <div className='loginPage'>
-        <MuiThemeProvider>
-          <div>
-            <AppBar title='Login' />
-            <TextField
-              hintText='Enter your Username'
-              floatingLabelText='Username'
-              onChange={(event, newValue) => this.setState({ username:newValue })}
-            />
-            <br />
-            <TextField
-              type='password'
-              hintText='Enter your Password'
-              floatingLabelText='Password'
-              onChange={(event, newValue) => this.setState({ password:newValue })}
-            />
-            <br />
-            <RaisedButton label='Login' primary style={style} />
-          </div>
-        </MuiThemeProvider>
+        <Form size='huge' onSubmit={this.handleSubmit}>
+          <Form.Input label='User Name' placeholder='User name' name='username' value={username} onChange={this.handleChange} />
+          <Form.Input label='Password' type='password' placeholder='Password' name='password' value={password} onChange={this.handleChange} />
+          <Form.Button content='Login' />
+        </Form>
       </div>
     )
   }
 }
 
-const style = {
-  margin: 15,
-}
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch)
+})
+
+const LoginContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login)
+
+export default withRouter(LoginContainer)
