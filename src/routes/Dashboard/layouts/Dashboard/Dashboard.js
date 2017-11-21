@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
   constructor () {
     super()
     this.state = {
-      activeItem: 'elections'
+      activeItem: 'articles-labeling'
     }
   }
 
@@ -24,12 +24,14 @@ class Dashboard extends React.Component {
     return (
       <div>
         <Menu attached='top' tabular className='dashboard-menu'>
+          <Menu.Item name='articles-labeling' active={activeItem === 'articles-labeling'} onClick={this.handleItemClick} />
           <Menu.Item name='elections' active={activeItem === 'elections'} onClick={this.handleItemClick} />
           <Menu.Item name='candidates' active={activeItem === 'candidates'} onClick={this.handleItemClick} />
           <Menu.Item name='media' active={activeItem === 'media'} onClick={this.handleItemClick} />
           <Menu.Item name='articles' active={activeItem === 'articles'} onClick={this.handleItemClick} />
           <Menu.Item name='users' active={activeItem === 'users'} onClick={this.handleItemClick} />
-          <Menu.Item name='articles-labeling' active={activeItem === 'articles-labeling'} onClick={this.handleItemClick} />
+          <Menu.Item name='groups' active={activeItem === 'groups'} onClick={this.handleItemClick} />
+          <Menu.Item name='permissions' active={activeItem === 'permissions'} onClick={this.handleItemClick} />
           <Menu.Menu position='right'>
             <Menu.Item>
               <Input transparent icon={{ name: 'search', link: true }} placeholder='Search...' />
