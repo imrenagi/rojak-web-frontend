@@ -24,7 +24,19 @@ class Annotator extends React.Component {
       { id: 1, title: 'Berita 1', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
       { id: 2, title: 'Berita 2', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 1 },
       { id: 3, title: 'Berita 3', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
-      { id: 4, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 }
+      { id: 4, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 5, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 6, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 7, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 8, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 9, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 10, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 11, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 12, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 1 },
+      { id: 13, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 1 },
+      { id: 14, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 15, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
+      { id: 16, title: 'Berita 4', media_name: 'Kompas.com', article_url: 'https://facebook.com', is_labeled: 0 },
     ]
 
     const tableData = data.map((article) => {
