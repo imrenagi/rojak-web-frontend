@@ -3,6 +3,7 @@ import Chart from 'components/charts/Chart'
 import { Card, Grid, Image, Button, Statistic } from 'semantic-ui-react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import * as Actions from './../../actions'
 
 import './mediaitem.css'
@@ -10,7 +11,7 @@ import './mediaitem.css'
 class MediaItem extends React.Component {
   render () {
     const relatedHashtag = this.props.media.related_tag.slice(0, 4).join(', ')
-
+    const { history } = this.props
     return (
       <Grid.Row columns={2}>
         <Grid.Column computer={4} tablet={4} mobile={16} className='media-card'>
@@ -28,7 +29,7 @@ class MediaItem extends React.Component {
             </Statistic>
           </div>
           <Button fluid size='huge'
-            onClick={() => { this.props.actions.pushMediaPage('dkijakarta', 'kompascom') }}>
+            onClick={() => { this.props.actions.pushMediaPage(history, 'dkijakarta', 'kompascom') }}>
               Lihat Detail</Button>
         </Grid.Column>
         <Grid.Column className='chart row' computer={12} tablet={12} mobile={16}>
@@ -43,9 +44,11 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(Actions, dispatch),
 })
 
+const mapStateToProps = (state) => ({})
+
 const MediaItemContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MediaItem)
 
-export default MediaItemContainer
+export default withRouter(MediaItemContainer)

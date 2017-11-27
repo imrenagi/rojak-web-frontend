@@ -15,9 +15,9 @@ class Login extends React.Component {
       password:''
     }
     // redirect to dashboard if they already logged in
-    const { isAuthenticated } = this.props
+    const { isAuthenticated, history } = this.props
     if (isAuthenticated) {
-      window.location.href = '/dashboard'
+      history.push('/dashboard')
     }
   }
 
