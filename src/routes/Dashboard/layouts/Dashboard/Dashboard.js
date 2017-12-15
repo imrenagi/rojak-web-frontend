@@ -3,7 +3,7 @@ import { Segment } from 'semantic-ui-react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from './../../actions'
-import { withRouter, BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { withRouter, Switch, Route } from 'react-router-dom'
 
 import Annotator from '../../components/Annotator'
 import DashboardMenu from '../../components/DashboardMenu'
@@ -11,22 +11,55 @@ import DashboardMenu from '../../components/DashboardMenu'
 import './dashboard.css'
 
 class Dashboard extends React.Component {
+  constructor (props) {
+    super(props)
+    const { actions } = this.props
+    var selectedMenu = this.props.location.pathname.split('/')[2]
+    if (selectedMenu !== undefined && selectedMenu !== '') {
+      actions.selectMenu(selectedMenu)
+    }
+  }
+
   render () {
+    const path = this.props.location.pathname
+    console.log(path)
+
+    const Election = () => (
+      <div>
+        <h2>Election</h2>
+      </div>
+    )
+
+    const Candidate = () => (
+      <div>
+        <h2>Candidate</h2>
+      </div>
+    )
+
+    const Media = () => (
+      <div>
+        <h2>Media</h2>
+      </div>
+    )
+
+    const Articles = () => (
+      <div>
+        <h2>Articles</h2>
+      </div>
+    )
+
     return (
       <div>
         <DashboardMenu />
-        <Router>
-          <Segment attached='bottom'>
-            <Switch>
-              <Route exact path='/dashboard' component={Annotator} />
-              <Route path='/dashboard/articles-labeling' component={Annotator} />
-              <Route path='/dashboard/elections' render={() => <h1>Election</h1>} />
-              <Route path='/dashboard/candidates' render={() => <h1>Candidate</h1>} />
-              <Route path='/dashboard/medias' render={() => <h1>Media</h1>} />
-              <Route path='/dashboard/articles' render={() => <h1>Articles</h1>} />
-            </Switch>
-          </Segment>
-        </Router>
+        <Segment attached='bottom'>
+          <Switch>
+            <Route path='/dashboard/articles-labeling' component={Annotator} />
+            <Route path='/dashboard/elections' component={Election} />
+            <Route path='/dashboard/candidates' component={Candidate} />
+            <Route path='/dashboard/media' component={Media} />
+            <Route path='/dashboard/articles' component={Articles} />
+          </Switch>
+        </Segment>
       </div>
     )
   }

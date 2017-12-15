@@ -1,5 +1,5 @@
 const initialState = {
-  selectedMenu: 'elections',
+  selectedMenu: '',
 }
 
 const dashboard = (state = initialState, action) => {

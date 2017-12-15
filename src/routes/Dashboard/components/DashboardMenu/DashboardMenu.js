@@ -21,21 +21,24 @@ class DashboardMenu extends React.Component {
     this.setState({ activeItem: name })
     switch (name) {
       case 'elections':
-        // actions.goToElectionDashboard()
+        actions.selectMenu('elections')
         history.push('/dashboard/elections')
         break
       case 'articles-labeling':
-        // actions.goToArticlesLabelingDashboard()
+        actions.selectMenu('articles-labeling')
         history.push('/dashboard/articles-labeling')
         break
       case 'candidates':
-        // actions.goToCandidateDashboard()
+        actions.selectMenu('candidates')
+        history.push('/dashboard/candidates')
         break
       case 'media':
-        // actions.goToMediaDashboard()
+        actions.selectMenu('media')
+        history.push('/dashboard/media')
         break
       case 'articles':
-        // actions.goToArticlesDashboard()
+        actions.selectMenu('articles')
+        history.push('/dashboard/articles')
         break
       case 'users':
         // actions.goToUserDashboard()
@@ -54,21 +57,24 @@ class DashboardMenu extends React.Component {
   render () {
     const { activeItem } = this.state
     return (
-      <Menu attached='top' tabular className='dashboard-menu'>
-        <Menu.Item name='articles-labeling' active={activeItem === 'articles-labeling'} onClick={this.handleItemClick} />
-        <Menu.Item name='elections' active={activeItem === 'elections'} onClick={this.handleItemClick} />
-        <Menu.Item name='candidates' active={activeItem === 'candidates'} onClick={this.handleItemClick} />
-        <Menu.Item name='media' active={activeItem === 'media'} onClick={this.handleItemClick} />
-        <Menu.Item name='articles' active={activeItem === 'articles'} onClick={this.handleItemClick} />
-        <Menu.Item name='users' active={activeItem === 'users'} onClick={this.handleItemClick} />
-        <Menu.Item name='groups' active={activeItem === 'groups'} onClick={this.handleItemClick} />
-        <Menu.Item name='permissions' active={activeItem === 'permissions'} onClick={this.handleItemClick} />
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input transparent icon={{ name: 'search', link: true }} placeholder='Search...' />
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
+      <div>
+
+        <Menu attached='top' tabular className='dashboard-menu'>
+          <Menu.Item name='articles-labeling' active={activeItem === 'articles-labeling'} onClick={this.handleItemClick} />
+          <Menu.Item name='elections' active={activeItem === 'elections'} onClick={this.handleItemClick} />
+          <Menu.Item name='candidates' active={activeItem === 'candidates'} onClick={this.handleItemClick} />
+          <Menu.Item name='media' active={activeItem === 'media'} onClick={this.handleItemClick} />
+          <Menu.Item name='articles' active={activeItem === 'articles'} onClick={this.handleItemClick} />
+          <Menu.Item name='users' active={activeItem === 'users'} onClick={this.handleItemClick} />
+          <Menu.Item name='groups' active={activeItem === 'groups'} onClick={this.handleItemClick} />
+          <Menu.Item name='permissions' active={activeItem === 'permissions'} onClick={this.handleItemClick} />
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Input transparent icon={{ name: 'search', link: true }} placeholder='Search...' />
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
+      </div>
     )
   }
 }
