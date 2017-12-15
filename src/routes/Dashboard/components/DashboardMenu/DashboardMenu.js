@@ -32,6 +32,10 @@ class DashboardMenu extends React.Component {
         actions.selectMenu('candidates')
         history.push('/dashboard/candidates')
         break
+      case 'nominees':
+        actions.selectMenu('nominees')
+        history.push('/dashboard/nominees')
+        break
       case 'media':
         actions.selectMenu('media')
         history.push('/dashboard/media')
@@ -62,6 +66,7 @@ class DashboardMenu extends React.Component {
         <Menu attached='top' tabular className='dashboard-menu'>
           <Menu.Item name='articles-labeling' active={activeItem === 'articles-labeling'} onClick={this.handleItemClick} />
           <Menu.Item name='elections' active={activeItem === 'elections'} onClick={this.handleItemClick} />
+          <Menu.Item name='nominees' active={activeItem === 'nominees'} onClick={this.handleItemClick} />
           <Menu.Item name='candidates' active={activeItem === 'candidates'} onClick={this.handleItemClick} />
           <Menu.Item name='media' active={activeItem === 'media'} onClick={this.handleItemClick} />
           <Menu.Item name='articles' active={activeItem === 'articles'} onClick={this.handleItemClick} />

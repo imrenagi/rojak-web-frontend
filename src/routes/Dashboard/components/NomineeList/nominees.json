@@ -1,0 +1,51 @@
+{
+    "nominees": [
+        {
+            "id": "ridwankamil",
+            "first_name": "Mochamad",
+            "middle_name": "Ridwan",
+            "last_name": "Kamil",
+            "nick_name": "Kang Emil"
+        },
+        {
+            "id": "ahok_btp",
+            "first_name": "Basuki",
+            "middle_name": "Tjahaja",
+            "last_name": "Purnama",
+            "nick_name": "Ahok"
+        },
+        {
+            "id": "jokowi",
+            "first_name": "Joko",
+            "middle_name": "",
+            "last_name": "Widodo",
+            "nick_name": "Jokowi"
+        },
+        {
+            "id": "prabowo",
+            "first_name": "Prabowo",
+            "middle_name": "",
+            "last_name": "Subianto",
+            "nick_name": "Prabowo"
+        },
+        {
+            "id": "trirismaharini",
+            "first_name": "Tri",
+            "middle_name": "",
+            "last_name": "Rismaharini",
+            "nick_name": "Risma"
+        },
+        {
+            "id": "pitoy",
+            "first_name": "Andri",
+            "middle_name": "Rahmad",
+            "last_name": "Widjaya",
+            "nick_name": "Pitoy"
+        }
+    ],
+    "meta": {
+        "page": 0,
+        "total_pages": 1,
+        "total_items": 6
+    }
+}

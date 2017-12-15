@@ -7,6 +7,8 @@ import { withRouter, Switch, Route } from 'react-router-dom'
 
 import Annotator from '../../components/Annotator'
 import ElectionList from '../../components/ElectionList'
+import NomineeList from '../../components/NomineeList'
+import CandidateList from '../../components/CandidateList'
 import DashboardMenu from '../../components/DashboardMenu'
 
 import './dashboard.css'
@@ -50,7 +52,8 @@ class Dashboard extends React.Component {
           <Switch>
             <Route path='/dashboard/articles-labeling' component={Annotator} />
             <Route path='/dashboard/elections' component={ElectionList} />
-            <Route path='/dashboard/candidates' component={Candidate} />
+            <Route path='/dashboard/candidates' component={CandidateList} />
+            <Route path='/dashboard/nominees' component={NomineeList} />
             <Route path='/dashboard/media' component={Media} />
             <Route path='/dashboard/articles' component={Articles} />
           </Switch>
