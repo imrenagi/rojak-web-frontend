@@ -6,6 +6,7 @@ import * as Actions from './../../actions'
 import { withRouter, Switch, Route } from 'react-router-dom'
 
 import Annotator from '../../components/Annotator'
+import ElectionList from '../../components/ElectionList'
 import DashboardMenu from '../../components/DashboardMenu'
 
 import './dashboard.css'
@@ -23,12 +24,6 @@ class Dashboard extends React.Component {
   render () {
     const path = this.props.location.pathname
     console.log(path)
-
-    const Election = () => (
-      <div>
-        <h2>Election</h2>
-      </div>
-    )
 
     const Candidate = () => (
       <div>
@@ -54,7 +49,7 @@ class Dashboard extends React.Component {
         <Segment attached='bottom'>
           <Switch>
             <Route path='/dashboard/articles-labeling' component={Annotator} />
-            <Route path='/dashboard/elections' component={Election} />
+            <Route path='/dashboard/elections' component={ElectionList} />
             <Route path='/dashboard/candidates' component={Candidate} />
             <Route path='/dashboard/media' component={Media} />
             <Route path='/dashboard/articles' component={Articles} />

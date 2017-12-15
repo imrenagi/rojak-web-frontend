@@ -1,0 +1,22 @@
+{
+  "elections": [
+    {
+      "id": "dkijakarta",
+      "name": "Pilgub DKI Jakarta",
+      "election_date": 1501080726,
+      "election_campaign_start_date": 1500562326,
+      "election_campaign_end_date": 1500735126,
+      "location": {
+        "city": "KOTA JAKARTA PUSAT",
+        "province": "DKI Jakarta",
+        "country": "Indonesia"
+      },
+      "election_type": "GOVERNOR"
+    }
+  ],
+  "meta": {
+    "page": 0,
+    "total_pages": 1,
+    "total_items": 1
+  }
+}
