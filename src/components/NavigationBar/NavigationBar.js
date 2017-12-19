@@ -7,7 +7,7 @@ export default class NavigationBar extends React.Component {
       <Menu stackable>
         <Menu.Item >
           <a href='/'>
-            <Image size='tiny' src='https://react.semantic-ui.com/logo.png' />
+            <Image size='medium' src='http://res.cloudinary.com/imrenagi-com/image/upload/c_scale,h_82/v1513363373/unnamed_ngyswj.png' />
           </a>
         </Menu.Item>
 

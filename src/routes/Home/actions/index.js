@@ -3,10 +3,10 @@ export const selectElection = (electionId) => ({
   electionId
 })
 
-export const pushCandidatePage = (electionId, candidateId) => {
-  window.location.href = '/election/' + electionId + '/candidate/' + candidateId
+export const pushCandidatePage = (history, electionId, candidateId) => {
+  history.push(`/election/${electionId}/candidate/${candidateId}`)
 }
 
-export const pushMediaPage = (electionId, mediaId) => {
-  window.location.href = '/election/' + electionId + '/media/' + mediaId
+export const pushMediaPage = (history, electionId, mediaId) => {
+  history.push(`/election/${electionId}/media/${mediaId}`)
 }
