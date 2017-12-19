@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Table, Button } from 'semantic-ui-react'
+import { Icon, Table, Button, Link } from 'semantic-ui-react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as Actions from './../../actions'
@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom'
 
 import data from './elections.json'
 import dateutils from 'utils/dateutils'
+
+import ElectionDetailModal from './ElectionDetailModal'
 
 class ElectionList extends React.Component {
   constructor () {
@@ -43,6 +45,10 @@ class ElectionList extends React.Component {
     const { open } = this.state
     return (
       <div>
+        <Button floated='right' icon labelPosition='left' primary size='small'
+          onClick={this.show}>
+          <Icon name='edit' /> Edit
+        </Button>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -71,6 +77,7 @@ class ElectionList extends React.Component {
             </Table.Row>
           </Table.Footer>
         </Table>
+        <ElectionDetailModal open={open} onClose={this.close} />
       </div>
     )
   }
